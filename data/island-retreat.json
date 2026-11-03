@@ -1,0 +1,209 @@
+{
+  "brand": "Gulf Coast Stays",
+  "collection": "Fort Walton Beach",
+  "property_name": "Island Retreat",
+  "address": "371 Bluefish Dr, Apt 1 · Okaloosa Island, Fort Walton Beach, FL",
+  "tagline": "2 bedrooms on stilts · walk to the Gulf beach one way, the bay the other",
+  "plan_start": "2026-11-02",
+  "plan_end": "2027-10-31",
+  "weekend_nights": [
+    "Fri",
+    "Sat"
+  ],
+  "seasons": {
+    "11": [
+      "Low",
+      135,
+      155,
+      2,
+      0.3
+    ],
+    "12": [
+      "Low",
+      135,
+      155,
+      2,
+      0.3
+    ],
+    "1": [
+      "Low",
+      125,
+      145,
+      2,
+      0.28
+    ],
+    "2": [
+      "Low",
+      135,
+      155,
+      2,
+      0.38
+    ],
+    "3": [
+      "Shoulder",
+      175,
+      205,
+      3,
+      0.45
+    ],
+    "4": [
+      "Shoulder",
+      175,
+      205,
+      3,
+      0.45
+    ],
+    "5": [
+      "Peak",
+      215,
+      250,
+      3,
+      0.5
+    ],
+    "6": [
+      "Peak",
+      265,
+      300,
+      4,
+      0.62
+    ],
+    "7": [
+      "Peak",
+      265,
+      300,
+      4,
+      0.58
+    ],
+    "8": [
+      "Shoulder",
+      195,
+      225,
+      3,
+      0.42
+    ],
+    "9": [
+      "Shoulder",
+      165,
+      195,
+      2,
+      0.37
+    ],
+    "10": [
+      "Shoulder",
+      170,
+      200,
+      2,
+      0.38
+    ]
+  },
+  "events": [
+    [
+      "2026-11-25",
+      "2026-11-28",
+      "Thanksgiving",
+      175,
+      195,
+      3
+    ],
+    [
+      "2026-12-19",
+      "2027-01-01",
+      "Christmas & New Year",
+      185,
+      210,
+      3
+    ],
+    [
+      "2026-12-31",
+      "2026-12-31",
+      "New Year's Eve",
+      240,
+      240,
+      3
+    ],
+    [
+      "2027-02-05",
+      "2027-02-08",
+      "Mardi Gras weekend",
+      175,
+      175,
+      2
+    ],
+    [
+      "2027-03-06",
+      "2027-04-03",
+      "Spring break season",
+      195,
+      225,
+      3
+    ],
+    [
+      "2027-03-26",
+      "2027-03-28",
+      "Easter weekend",
+      235,
+      235,
+      3
+    ],
+    [
+      "2027-05-28",
+      "2027-05-30",
+      "Memorial Day weekend",
+      285,
+      285,
+      3
+    ],
+    [
+      "2027-06-04",
+      "2027-06-06",
+      "Billy Bowlegs Pirate Festival*",
+      320,
+      320,
+      3
+    ],
+    [
+      "2027-07-01",
+      "2027-07-04",
+      "Fourth of July",
+      325,
+      325,
+      4
+    ],
+    [
+      "2027-09-03",
+      "2027-09-05",
+      "Labor Day weekend",
+      225,
+      225,
+      3
+    ],
+    [
+      "2027-10-01",
+      "2027-10-03",
+      "Destin Seafood Festival*",
+      215,
+      215,
+      2
+    ]
+  ],
+  "launch_discount": 0.1,
+  "launch_discount_until": "2027-01-31",
+  "fees": {
+    "Cleaning fee": "$135 per stay",
+    "Weekly stays (7+ nights)": "10% off",
+    "Monthly stays (28+ nights)": "25% off",
+    "Launch pricing": "10% off through Jan 31, 2027"
+  },
+  "monthly_offers": {
+    "1": 2300,
+    "2": 2500
+  },
+  "market_note": "Market reference: Fort Walton Beach 2BR average $341/night at 39% occupancy (AirROI, Oct 2026). Those averages include Gulf-front towers, so this plan sits 30–40% below them.",
+  "footnote": "Rates are nightly, before cleaning fee and lodging taxes; table shows standard rates, projections include launch pricing. Projected rent = nights × occupancy × average listed rate. *Confirm event dates before publishing.",
+  "tips": [
+    "Load the daily rates into StayOS or PriceLabs as base rates.",
+    "Raise rates about 10% after 5–10 reviews at 4.8+.",
+    "List Jan–Feb as monthly stays from September."
+  ],
+  "badge": "island-retreat"
+}

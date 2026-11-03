@@ -36,7 +36,7 @@ export const property = {
   honest: [
     "Not waterfront. You walk to the water, both ways.",
     "Older, low-rise complex, not a resort. No pool, no elevator.",
-    "The island has a working side. Expect real Florida, not a brochure.",
+    "A lived-in island neighborhood, not a resort strip. Locals, boats and a quiet street.",
   ],
   photoSlots: [
     { key: "hero", label: "Exterior at golden hour, from the courtyard" },

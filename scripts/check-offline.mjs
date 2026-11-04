@@ -45,7 +45,8 @@ const sandbox = {
     return { ok: true, type: "basic", body: "net:" + keyOf(request), text: async () => "", clone() { return this; } };
   },
 };
-runInNewContext(readFileSync("public/sw.js", "utf8"), sandbox);
+const sw = readFileSync("public/sw.js", "utf8");
+runInNewContext(sw, sandbox);
 
 const run = (name, event) =>
   new Promise((resolve) => {
@@ -64,7 +65,8 @@ const nav = (path) => ({ request: { url: origin + path, method: "GET", mode: "na
 const get = (path, mode = "cors") => ({ request: { url: origin + path, method: "GET", mode } });
 
 await run("install", {});
-const pages = caches.get("gcs-pages-v1");
+const VERSION = (sw.match(/const VERSION = "([^"]+)"/) ?? [, "v1"])[1];
+const pages = caches.get(`gcs-pages-${VERSION}`);
 for (const path of ["/", "/book", "/rates", "/offline.html"]) assert.ok(pages.store.has(origin + path), `install precaches ${path}`);
 
 await run("activate", {});
@@ -78,7 +80,7 @@ assert.ok(pages.store.has(origin + "/island-retreat"), "visited page cached");
 // Static assets are cache-first and bounded.
 for (let i = 0; i < 200; i++) await run("fetch", get(`/photos/${i}.webp`));
 await run("fetch", get("/_next/static/chunks/app.js"));
-const statics = caches.get("gcs-static-v1");
+const statics = caches.get(`gcs-static-${VERSION}`);
 assert.equal(statics.store.size, 150, "static cache is bounded");
 
 // Offline: visited pages come from cache, unknown pages get the offline page.

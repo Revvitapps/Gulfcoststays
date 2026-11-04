@@ -8,6 +8,7 @@
 - 2026-11-03: Street address is not published on the site; it goes in the booking confirmation.
 - 2026-11-03: Prices come only from `data/island-retreat.json` (the pricing plan). Change rates there, never in components. `npm run check:rates` guards the math.
 - 2026-11-03: Booking is request-only until StayOS exposes availability and payment. `lib/booking.ts` is the adapter seam.
+- 2026-11-04: Look is rustic old-Florida, not resort: paper grain, ink rules, watercolor washes, flat buttons, matted photos (brief: project-files gulf-coast-stays/brand/hero/rustic-direction.md). Home hero is the ink-and-watercolor courtyard sketch (`public/brand/hero-sketch.jpg`), navy headline on paper, full stretch. Layout is full bleed: no content width cap.
 - Indexing stays off (`SITE_INDEXING` unset) until Matthew says launch.
 
 ### Open questions for Matthew

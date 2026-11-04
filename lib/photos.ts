@@ -10,7 +10,7 @@ export type Photo = { key: string; label: string; src?: string; alt: string; pos
 const slot = (key: string, label: string, alt: string, src?: string): Photo => ({ key, label, alt, src });
 
 export const photos = {
-  hero: { ...slot("hero", "Exterior at golden hour, from the courtyard", "Island Retreat, a raised two-bedroom condo on Okaloosa Island", "/photos/kitchen.jpg"), position: "center 40%" }, // interim: kitchen until the exterior is shot
+  hero: slot("hero", "Exterior at golden hour, from the courtyard", "Island Retreat, a raised two-bedroom condo on Okaloosa Island"),
   living: slot("living", "Living room toward the windows", "Living room at Island Retreat"),
   kitchen: slot("kitchen", "Kitchen, counter forward", "Kitchen and dining table at Island Retreat", "/photos/kitchen.jpg"),
   dining: slot("dining", "Dining table", "Pub-height dining table for four at Island Retreat", "/photos/dining.jpg"),

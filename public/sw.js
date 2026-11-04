@@ -6,7 +6,7 @@
 //    served when offline, then the offline page.
 //  - Images, icons and hashed build assets are cache-first, bounded.
 //  - API requests and anything that is not a GET are never touched.
-const VERSION = "v2";
+const VERSION = "v3";
 const STATIC_CACHE = `gcs-static-${VERSION}`;
 const PAGE_CACHE = `gcs-pages-${VERSION}`;
 const OFFLINE_PAGE = "/offline.html";

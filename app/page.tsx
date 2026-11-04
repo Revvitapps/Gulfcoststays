@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, CalendarDays, Compass, Fish, Moon, Sun, Users, Waves } from "lucide-react";
 import { Photo } from "@/components/photo";
 import { JsonLd } from "@/components/json-ld";
@@ -30,8 +31,7 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={lodgingJsonLd()} />
-      <section className="hero on-dark">
-        <Photo slot="hero" className="photo-fill hero-media" priority quiet sizes="100vw" />
+      <section className="hero">
         <div className="wrap hero-inner">
           <div>
             <p className="eyebrow">{property.collection} · Okaloosa Island</p>
@@ -48,19 +48,22 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="row" style={{ gap: "1.25rem", alignItems: "center" }}>
+          <div className="hero-price row" style={{ gap: "1.25rem", alignItems: "center" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img className="hero-badge" src="/brand/island-retreat-badge-alt.webp" alt="Island Retreat badge" width={120} height={120} />
             <div>
-              <div className="stat">
+              <div className="stat wash wash-sea">
                 from {money(tonight.rate)}
-                <small style={{ color: "rgba(255,255,255,0.7)" }}>per night this week · {tonight.season.toLowerCase()} season</small>
+                <small>per night this week · {tonight.season.toLowerCase()} season</small>
               </div>
-              <p className="small" style={{ color: "rgba(255,255,255,0.7)", margin: "0.4rem 0 0" }}>
+              <p className="small" style={{ margin: "0.4rem 0 0" }}>
                 Launch pricing: 10% off through {new Date(LAUNCH_UNTIL + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
               </p>
             </div>
           </div>
+        </div>
+        <div className="hero-art" aria-hidden={false}>
+          <Image src="/brand/hero-sketch.jpg" alt="Illustration of the Island Retreat courtyard: two raised buildings, a palm and the center stairs" fill priority quality={90} sizes="100vw" />
         </div>
       </section>
 
@@ -80,6 +83,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      <hr className="ink-rule" />
       <section className="band section-tight">
         <div className="wrap grid grid-3">
           {property.features.slice(0, 3).map((f) => (
@@ -115,6 +119,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      <hr className="ink-rule" />
       <section className="band-sea section">
         <div className="wrap row between">
           <div>

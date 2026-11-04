@@ -9,7 +9,7 @@ const { chromium } = createRequire(import.meta.url)("playwright");
 const port = process.env.CHECK_PORT ?? "3995";
 const base = `http://127.0.0.1:${port}`;
 const routes = ["/", "/island-retreat", "/rates", "/book", "/area", "/about", "/more", "/audit"];
-const viewports = { phone: { width: 390, height: 844, deviceScaleFactor: 2, isMobile: true, hasTouch: true }, desktop: { width: 1440, height: 900, deviceScaleFactor: 1 } };
+const viewports = { phone: { width: 390, height: 844, deviceScaleFactor: 2, isMobile: true, hasTouch: true }, desktop: { width: 1920, height: 1080, deviceScaleFactor: 1 } };
 mkdirSync("docs/shots", { recursive: true });
 
 const server = spawn("node", ["node_modules/next/dist/bin/next", "start", "-p", port], { stdio: ["ignore", "pipe", "pipe"] });

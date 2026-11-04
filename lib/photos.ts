@@ -10,11 +10,15 @@ export type Photo = { key: string; label: string; src?: string; alt: string; pos
 const slot = (key: string, label: string, alt: string, src?: string): Photo => ({ key, label, alt, src });
 
 export const photos = {
-  hero: slot("hero", "Exterior at golden hour, from the courtyard", "Island Retreat, a raised two-bedroom condo on Okaloosa Island"),
+  hero: { ...slot("hero", "Exterior at golden hour, from the courtyard", "Island Retreat, a raised two-bedroom condo on Okaloosa Island", "/photos/kitchen.jpg"), position: "center 40%" }, // interim: kitchen until the exterior is shot
   living: slot("living", "Living room toward the windows", "Living room at Island Retreat"),
-  kitchen: slot("kitchen", "Kitchen, counter forward", "Kitchen at Island Retreat"),
-  bed1: slot("bed1", "Bedroom one, bed made, lamps on", "Main bedroom at Island Retreat"),
-  bed2: slot("bed2", "Bedroom two", "Second bedroom at Island Retreat"),
+  kitchen: slot("kitchen", "Kitchen, counter forward", "Kitchen and dining table at Island Retreat", "/photos/kitchen.jpg"),
+  dining: slot("dining", "Dining table", "Pub-height dining table for four at Island Retreat", "/photos/dining.jpg"),
+  bed1: slot("bed1", "Bedroom one, bed made, lamps on", "Main bedroom at Island Retreat", "/photos/bed1.jpg"),
+  bed1Tv: slot("bed1Tv", "Bedroom one, TV wall", "Main bedroom TV and dresser at Island Retreat", "/photos/bed1-tv.jpg"),
+  bed1Closet: slot("bed1Closet", "Bedroom one, closet", "Main bedroom closet at Island Retreat", "/photos/bed1-closet.jpg"),
+  bed2: slot("bed2", "Bedroom two", "Second bedroom at Island Retreat", "/photos/bed2.jpg"),
+  bed2Closet: slot("bed2Closet", "Bedroom two, dresser and closet", "Second bedroom dresser, TV and closet at Island Retreat", "/photos/bed2-closet.jpg"),
   deck: slot("deck", "Deck or stairs with the breeze in the palms", "Stairs and deck at Island Retreat"),
   beachWalk: slot("beachWalk", "The walk to the beach access across the street", "Public beach access across Santa Rosa Blvd"),
   bayWalk: slot("bayWalk", "The boat basin at sunset", "Okaloosa Island Boat Basin at sunset"),
@@ -24,4 +28,7 @@ export const photos = {
 } satisfies Record<string, Photo>;
 
 export type PhotoKey = keyof typeof photos;
-export const gallery: PhotoKey[] = ["hero", "living", "kitchen", "bed1", "bed2", "deck", "beachWalk", "bayWalk"];
+/** Shot and on the site, in display order. */
+export const gallery: PhotoKey[] = ["kitchen", "bed1", "dining", "bed2", "bed1Tv", "bed2Closet", "bed1Closet"];
+/** Still on Matthew's shot list. Rendered as plates, smaller, below the real photos. */
+export const stillToShoot: PhotoKey[] = ["hero", "living", "deck", "beachWalk", "bayWalk"];

@@ -6,13 +6,13 @@ import { photos, type PhotoKey } from "@/lib/photos";
  * otherwise a branded plate that names the shot, so the page reads as a
  * shot list for Matthew rather than a broken site.
  */
-/** `quiet` draws the plate without the label (hero backgrounds, where copy sits on top). */
-export function Photo({ slot, className = "", sizes = "100vw", priority, quiet }: { slot: PhotoKey; className?: string; sizes?: string; priority?: boolean; quiet?: boolean }) {
+/** `quiet` draws the plate without the label (hero backgrounds, where copy sits on top). `plate` forces the shot-list plate even if an interim src is set. */
+export function Photo({ slot, className = "", sizes = "100vw", priority, quiet, plate }: { slot: PhotoKey; className?: string; sizes?: string; priority?: boolean; quiet?: boolean; plate?: boolean }) {
   const p = photos[slot];
-  if (p.src) {
+  if (p.src && !plate) {
     return (
       <div className={`photo ${className}`}>
-        <Image src={p.src} alt={p.alt} fill sizes={sizes} priority={priority} style={{ objectFit: "cover", objectPosition: p.position ?? "center" }} />
+        <Image src={p.src} alt={p.alt} fill sizes={sizes} priority={priority} quality={90} style={{ objectFit: "cover", objectPosition: p.position ?? "center" }} />
       </div>
     );
   }

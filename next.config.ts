@@ -21,6 +21,12 @@ const shortLinks = [
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  images: {
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [640, 828, 1080, 1280, 1600, 1920, 2560, 3840],
+    qualities: [75, 90],
+    minimumCacheTTL: 2678400,
+  },
   poweredByHeader: false,
   allowedDevOrigins: ["192.168.*.*", "10.*.*.*", "*.local"],
   async headers() {

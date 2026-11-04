@@ -3,7 +3,7 @@ import { BedDouble, Check, Clock, Footprints, Palmtree, X } from "lucide-react";
 import { Photo } from "@/components/photo";
 import { JsonLd } from "@/components/json-ld";
 import { property } from "@/data/property";
-import { gallery } from "@/lib/photos";
+import { gallery, stillToShoot } from "@/lib/photos";
 import { lodgingJsonLd } from "@/lib/seo";
 
 export const metadata = {
@@ -47,11 +47,19 @@ export default function HomeDetailPage() {
         </div>
       </section>
 
+      <section className="gallery" aria-label="Photos of Island Retreat">
+        {gallery.map((k, i) => (
+          <Photo key={k} slot={k} className={`photo-bleed g${i + 1}`} sizes={i === 0 ? "(min-width: 900px) 66vw, 100vw" : "(min-width: 900px) 33vw, 50vw"} priority={i < 2} />
+        ))}
+      </section>
       <section className="section-tight">
-        <div className="wrap grid" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 280px), 1fr))" }}>
-          {gallery.map((k, i) => (
-            <Photo key={k} slot={k} className={i === 0 ? "photo-wide" : ""} sizes="(min-width: 720px) 33vw, 100vw" priority={i === 0} />
-          ))}
+        <div className="wrap">
+          <p className="eyebrow">Still to shoot</p>
+          <div className="grid" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 150px), 1fr))" }}>
+            {stillToShoot.map((k) => (
+              <Photo key={k} slot={k} className="photo-small" sizes="(min-width: 720px) 20vw, 50vw" plate />
+            ))}
+          </div>
         </div>
       </section>
 

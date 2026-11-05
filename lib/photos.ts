@@ -19,8 +19,10 @@ export const photos = {
   bed1Closet: slot("bed1Closet", "Bedroom one, closet", "Main bedroom closet at Island Retreat", "/photos/bed1-closet.jpg"),
   bed2: slot("bed2", "Bedroom two", "Second bedroom at Island Retreat", "/photos/bed2.jpg"),
   bed2Closet: slot("bed2Closet", "Bedroom two, dresser and closet", "Second bedroom dresser, TV and closet at Island Retreat", "/photos/bed2-closet.jpg"),
-  deck: slot("deck", "Deck or stairs with the breeze in the palms", "Stairs and deck at Island Retreat"),
-  beachWalk: slot("beachWalk", "The walk to the beach access across the street", "Public beach access across Santa Rosa Blvd"),
+  deck: slot("deck", "Courtyard, stairs and the palm", "The courtyard at Island Retreat: the raised center building, its stairs and the palm", "/photos/courtyard.jpg"),
+  parking: slot("parking", "Your spot under the building", "Parking spot under the building, painted Apt 1", "/photos/parking.jpg"),
+  tables: slot("tables", "Picnic tables under the building", "Picnic tables in the shade under the raised building", "/photos/tables.jpg"),
+  beachWalk: slot("beachWalk", "The beach access across the street", "Blue Dolphin Beachwalk, the public beach access across Santa Rosa Blvd", "/photos/beach-walk.jpg"),
   bayWalk: slot("bayWalk", "The boat basin at sunset", "Okaloosa Island Boat Basin at sunset"),
   gulfarium: slot("gulfarium", "Gulfarium entrance or dolphin show", "Gulfarium Marine Adventure Park"),
   pier: slot("pier", "Okaloosa Island Pier from the beach", "Okaloosa Island Pier"),
@@ -29,6 +31,6 @@ export const photos = {
 
 export type PhotoKey = keyof typeof photos;
 /** Shot and on the site, in display order. */
-export const gallery: PhotoKey[] = ["kitchen", "bed1", "dining", "bed2", "bed1Tv", "bed2Closet", "bed1Closet"];
+export const gallery: PhotoKey[] = ["kitchen", "bed1", "dining", "deck", "bed2", "beachWalk", "bed1Tv", "parking", "tables", "bed2Closet"];
 /** Still on Matthew's shot list. Rendered as plates, smaller, below the real photos. */
-export const stillToShoot: PhotoKey[] = ["hero", "living", "deck", "beachWalk", "bayWalk"];
+export const stillToShoot: PhotoKey[] = ["hero", "living", "bayWalk"];

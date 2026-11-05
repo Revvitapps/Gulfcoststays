@@ -299,3 +299,17 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); }
 .quote .saves { font-size: 0.95rem; color: var(--seafoam); }
 
 .photo-credit { position: absolute; right: 8px; bottom: 8px; z-index: 1; font-size: 0.68rem; letter-spacing: 0.02em; color: #fff; background: rgba(15,30,46,0.55); padding: 2px 7px; border-radius: 3px; }
+
+/* Sketch-to-photo reveal: sketch on top, photo fades in on hover, focus, tap, or (phones) as it scrolls through center */
+.reveal-grid { display: grid; gap: 10px; padding: 1rem var(--gutter) 0; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .reveal-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .reveal-grid { grid-template-columns: repeat(3, 1fr); } .reveal-grid:has(.reveal-wide) { grid-template-columns: repeat(4, 1fr); } .reveal-wide { grid-column: span 2; grid-row: span 2; } }
+.reveal { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius); border: 6px solid #fbf7f0; outline: 1px solid var(--ink); background: #fbf7f0; cursor: pointer; box-shadow: 0 1px 0 rgba(15,30,46,0.08); }
+.reveal-wide { aspect-ratio: auto; min-height: 320px; }
+.reveal img { object-fit: cover; object-position: center; transition: opacity 650ms ease, transform 900ms ease; }
+.reveal .reveal-photo { opacity: 0; transform: scale(1.03); }
+.reveal:hover .reveal-photo, .reveal:focus-visible .reveal-photo, .reveal.is-on .reveal-photo { opacity: 1; transform: none; }
+.reveal:hover .reveal-sketch, .reveal.is-on .reveal-sketch { transform: scale(1.02); }
+.reveal-hint { position: absolute; left: 10px; bottom: 10px; z-index: 1; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: rgba(15,30,46,0.55); padding: 3px 8px; border-radius: 3px; pointer-events: none; }
+.reveal:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .reveal img { transition: opacity 200ms linear; transform: none !important; } }

@@ -8,7 +8,7 @@ import { property } from "@/data/property";
 import { lodgingJsonLd } from "@/lib/seo";
 import { LAUNCH_UNTIL } from "@/lib/rates";
 import { DirectBenefits } from "@/components/direct";
-import { Sketchbook } from "@/components/sketchbook";
+import { SketchReveal } from "@/components/sketch-reveal";
 
 // Rebuilt daily so "from $X this week" tracks the season.
 export const revalidate = 86400;
@@ -121,7 +121,7 @@ export default function HomePage() {
       </section>
 
       <hr className="ink-rule" />
-      <Sketchbook keys={["courtyard", "beachWalk", "tables"]} heading="The place, in watercolor" />
+      <SketchReveal keys={["courtyard", "beachWalk", "tables"]} heading="The place, drawn and then real" lede="Painted from the home itself. Hover, or scroll past on your phone, and the photo shows through." />
 
       <DirectBenefits heading="Book direct, skip the fees" />
     </>

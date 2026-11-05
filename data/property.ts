@@ -31,7 +31,7 @@ export const property = {
     { title: "Raised on stilts", detail: "Center building, first floor. Your parking spot and picnic tables underneath, out of the sun." },
     { title: "Two real bedrooms", detail: "Not a studio with a curtain. [PLACEHOLDER: bed sizes]" },
     { title: "Near the Gulfarium", detail: "The Gulfarium, Boardwalk and Brooks Bridge are minutes away." },
-    { title: "Quiet complex", detail: "Six units, two floors, courtyard parking. Long-term neighbours, not a party tower." },
+    { title: "Quiet complex", detail: "Six units, two floors, courtyard parking. Long-term neighbors, not a party tower." },
   ],
   honest: [
     "Not waterfront. You walk to the water, both ways.",

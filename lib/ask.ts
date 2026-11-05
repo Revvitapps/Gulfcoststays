@@ -48,7 +48,7 @@ export const askTree: Record<string, Node> = {
   },
   avail: {
     id: "avail",
-    prompt: "The live calendar is coming with direct booking. Until then, send your dates and we answer within a few hours, usually faster.",
+    prompt: "Send your dates and you get a yes or no within a few hours, usually faster. Nothing is charged until we confirm.",
     options: [{ label: "Back", next: "start" }],
     action: { label: "Send my dates", href: "/book" },
     human: true,

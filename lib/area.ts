@@ -20,7 +20,7 @@ export const faqs = [
   { q: "Is Island Retreat on the water?", a: "No. It sits between the Gulf and the bay on Okaloosa Island, a walk to either. That is why it costs less than the Gulf-front towers." },
   { q: "What are check-in and check-out?", a: "Check-in from 4 pm, check-out by 10 am. Early or late is sometimes possible; ask when you book." },
   { q: "Do you allow pets?", a: "Not at Island Retreat. [PLACEHOLDER: confirm HOA rule]" },
-  { q: "Is there a minimum stay?", a: "Two nights in low season, three in spring and summer, four around the Fourth of July. The rates page shows every date." },
+  { q: "Is there a minimum stay?", a: "Two nights in the quiet months, three in spring and summer, four around the Fourth of July. Pick your dates and the minimum shows before you book." },
   { q: "Why book direct?", a: "No platform service fee, the same house, and you talk to the person who manages it. Weekly stays are 10% off, monthly 25% off, and launch pricing is 10% off through January 31, 2027." },
   { q: "What is the cleaning fee?", a: "One cleaning fee per stay, shown in your price when you pick dates. Lodging taxes are added as Florida and Okaloosa County require." },
 ];

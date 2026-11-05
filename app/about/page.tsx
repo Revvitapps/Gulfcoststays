@@ -1,3 +1,4 @@
+import { pub } from "@/lib/pub";
 import Link from "next/link";
 import { brand } from "@/lib/site";
 
@@ -15,7 +16,7 @@ export default function AboutPage() {
             <p className="eyebrow">Who we are</p>
             <h1 style={{ fontSize: "clamp(2.4rem, 7vw, 4.5rem)" }}>Gulf Coast <span className="script" style={{ fontSize: "0.55em" }}>Stays</span></h1>
             <p className="lede">A family-run collection of real homes on the Emerald Coast. We manage them ourselves, answer our own email, and price under the towers because we are not one.</p>
-            <p>Island Retreat in Fort Walton Beach is the first. Each future home joins a town collection under the same badge: same standards, same direct booking, a local name on the door.</p>
+            <p>Island Retreat in Fort Walton Beach is the first. More homes along the coast will follow, with the same standards and the same direct booking.</p>
             <Link href="/island-retreat" className="button">Island Retreat</Link>
           </div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -40,9 +41,9 @@ export default function AboutPage() {
       <section className="band section-tight">
         <div className="wrap">
           <p className="eyebrow">Coming next</p>
-          <h2>More towns, same badge</h2>
-          <p className="small">Destin and Gulf Shores collections are on the list. Want to know when a home opens? <Link href="/contact" style={{ color: "#fff" }}>Leave your email</Link>.</p>
-          <p className="small">{brand.legal}</p>
+          <h2>More homes on the way</h2>
+          <p className="small">Destin and Gulf Shores are next. Want to hear when a home opens? <Link href="/contact" style={{ color: "#fff" }}>Leave your email</Link>.</p>
+          <p className="small">{pub(brand.legal)}</p>
         </div>
       </section>
     </>

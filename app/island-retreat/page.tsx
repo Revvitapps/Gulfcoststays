@@ -6,7 +6,7 @@ import { property } from "@/data/property";
 import { gallery } from "@/lib/photos";
 import { pub } from "@/lib/pub";
 import { DirectBenefits } from "@/components/direct";
-import { Sketchbook } from "@/components/sketchbook";
+import { SketchReveal } from "@/components/sketch-reveal";
 import { lodgingJsonLd } from "@/lib/seo";
 
 export const metadata = {
@@ -42,12 +42,13 @@ export default function HomeDetailPage() {
         </div>
       </section>
 
+      <SketchReveal />
+
       <section className="gallery" aria-label="Photos of Island Retreat">
         {gallery.map((k, i) => (
           <Photo key={k} slot={k} className={`photo-bleed g${i + 1}`} sizes={i === 0 ? "(min-width: 900px) 66vw, 100vw" : "(min-width: 900px) 33vw, 50vw"} priority={i < 2} />
         ))}
       </section>
-      <Sketchbook />
 
       <section className="section">
         <div className="wrap grid grid-2">

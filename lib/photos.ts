@@ -23,9 +23,10 @@ export const photos = {
   parking: slot("parking", "Your spot under the building", "Parking spot under the building, painted Apt 1", "/photos/parking.jpg"),
   tables: slot("tables", "Picnic tables under the building", "Picnic tables in the shade under the raised building", "/photos/tables.jpg"),
   beachWalk: slot("beachWalk", "The beach access across the street", "Blue Dolphin Beachwalk, the public beach access across Santa Rosa Blvd", "/photos/beach-walk.jpg"),
-  bayWalk: slot("bayWalk", "The boat basin at sunset", "Okaloosa Island Boat Basin at sunset"),
+  bayWalk: { ...slot("bayWalk", "The boat basin at sunset", "Okaloosa Island Boat Basin: the new docks and kayak launch on the bay", "/photos/boat-basin.jpg"), credit: "Photo: Okaloosa County" },
   gulfarium: { ...slot("gulfarium", "Gulfarium entrance or dolphin show", "A bottlenose dolphin at Gulfarium Marine Adventure Park", "/photos/gulfarium.jpg"), credit: "Photo: Gulfarium Marine Adventure Park" },
-  pier: slot("pier", "Okaloosa Island Pier from the beach", "Okaloosa Island Pier"),
+  pier: { ...slot("pier", "Okaloosa Island Pier from the beach", "Okaloosa Island Pier from the sand, Gulf side", "/photos/pier.jpg"), credit: "Photo: Destin-Fort Walton Beach" },
+  town: { ...slot("town", "Downtown Fort Walton Beach", "The Indian Temple Mound on Miracle Strip Parkway in downtown Fort Walton Beach", "/photos/temple-mound.jpg"), credit: "Photo: Destin-Fort Walton Beach" },
   food: { ...slot("food", "A fried shrimp basket at Stewby's", "Fried shrimp basket with hushpuppies and fries at Stewby's Seafood Shanty", "/photos/stewbys-shrimp.jpg"), credit: "Photo: Stewby's Seafood Shanty" },
 } satisfies Record<string, Photo>;
 
@@ -43,4 +44,4 @@ export const sketches: Art[] = [
 /** Shot and on the site, in display order. */
 export const gallery: PhotoKey[] = ["kitchen", "bed1", "dining", "deck", "bed2", "beachWalk", "bed1Tv", "parking", "tables", "bed2Closet"];
 /** Still on Matthew's shot list. Rendered as plates, smaller, below the real photos. */
-export const stillToShoot: PhotoKey[] = ["hero", "living", "bayWalk"];
+export const stillToShoot: PhotoKey[] = ["hero", "living"];

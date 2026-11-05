@@ -10,7 +10,7 @@ export const spots: Spot[] = [
   { name: "Gulfarium Marine Adventure Park", kind: "fun", blurb: "Dolphins, sea lions and the sea turtle hospital. Half a day with kids.", distance: "Minutes by car", photo: "gulfarium" },
   { name: "Okaloosa Island Pier & Boardwalk", kind: "fun", blurb: "Fish the pier, eat on the Boardwalk, walk it off on the beach.", distance: "Minutes by car", photo: "pier" },
   { name: "Stewby's Seafood Shanty", kind: "food", blurb: "Fried shrimp, oysters and the catch of the day. Order at the window.", distance: "Minutes by car", photo: "food" },
-  { name: "Downtown Fort Walton Beach", kind: "town", blurb: "Over Brooks Bridge: the Landing, the Indian Temple Mound, coffee and breweries.", distance: "Minutes by car" },
+  { name: "Downtown Fort Walton Beach", kind: "town", blurb: "Over Brooks Bridge: the Landing, the Indian Temple Mound, coffee and breweries.", distance: "Minutes by car", photo: "town" },
 ];
 
 export const kinds: Record<Spot["kind"], string> = { beach: "Beach", water: "Bay", fun: "Fun", food: "Eat", town: "Town" };

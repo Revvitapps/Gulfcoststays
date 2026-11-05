@@ -297,3 +297,5 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); }
 .sketch img { display: block; width: 100%; height: auto; border-radius: 3px; }
 .sketch-tall img { aspect-ratio: 4 / 3; object-fit: cover; object-position: center 40%; }
 .quote .saves { font-size: 0.95rem; color: var(--seafoam); }
+
+.photo-credit { position: absolute; right: 8px; bottom: 8px; z-index: 1; font-size: 0.68rem; letter-spacing: 0.02em; color: #fff; background: rgba(15,30,46,0.55); padding: 2px 7px; border-radius: 3px; }

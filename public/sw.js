@@ -6,7 +6,7 @@
 //    served when offline, then the offline page.
 //  - Images, icons and hashed build assets are cache-first, bounded.
 //  - API requests and anything that is not a GET are never touched.
-const VERSION = "v5";
+const VERSION = "v6";
 const STATIC_CACHE = `gcs-static-${VERSION}`;
 const PAGE_CACHE = `gcs-pages-${VERSION}`;
 const OFFLINE_PAGE = "/offline.html";
@@ -37,6 +37,7 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("activate", (event) => {
+  event.waitUntil(self.clients.claim());
   event.waitUntil(
     caches
       .keys()

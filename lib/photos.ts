@@ -5,7 +5,7 @@
  *
  * To add a photo: drop `public/photos/<key>.jpg` and set `src` below.
  */
-export type Photo = { key: string; label: string; src?: string; alt: string; position?: string };
+export type Photo = { key: string; label: string; src?: string; alt: string; position?: string; credit?: string };
 
 const slot = (key: string, label: string, alt: string, src?: string): Photo => ({ key, label, alt, src });
 
@@ -24,9 +24,9 @@ export const photos = {
   tables: slot("tables", "Picnic tables under the building", "Picnic tables in the shade under the raised building", "/photos/tables.jpg"),
   beachWalk: slot("beachWalk", "The beach access across the street", "Blue Dolphin Beachwalk, the public beach access across Santa Rosa Blvd", "/photos/beach-walk.jpg"),
   bayWalk: slot("bayWalk", "The boat basin at sunset", "Okaloosa Island Boat Basin at sunset"),
-  gulfarium: slot("gulfarium", "Gulfarium entrance or dolphin show", "Gulfarium Marine Adventure Park"),
+  gulfarium: { ...slot("gulfarium", "Gulfarium entrance or dolphin show", "A bottlenose dolphin at Gulfarium Marine Adventure Park", "/photos/gulfarium.jpg"), credit: "Photo: Gulfarium Marine Adventure Park" },
   pier: slot("pier", "Okaloosa Island Pier from the beach", "Okaloosa Island Pier"),
-  food: slot("food", "A fried shrimp basket at Stewby's", "Seafood basket at a local shanty"),
+  food: { ...slot("food", "A fried shrimp basket at Stewby's", "Fried shrimp basket with hushpuppies and fries at Stewby's Seafood Shanty", "/photos/stewbys-shrimp.jpg"), credit: "Photo: Stewby's Seafood Shanty" },
 } satisfies Record<string, Photo>;
 
 export type PhotoKey = keyof typeof photos;

@@ -13,6 +13,7 @@ export function Photo({ slot, className = "", sizes = "100vw", priority, quiet, 
     return (
       <div className={`photo ${className}`}>
         <Image src={p.src} alt={p.alt} fill sizes={sizes} priority={priority} quality={90} style={{ objectFit: "cover", objectPosition: p.position ?? "center" }} />
+        {p.credit ? <span className="photo-credit">{p.credit}</span> : null}
       </div>
     );
   }

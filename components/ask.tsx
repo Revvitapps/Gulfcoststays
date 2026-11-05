@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { MessageCircleQuestion, X } from "lucide-react";
 import { askTree } from "@/lib/ask";
+import { pub } from "@/lib/pub";
 import { upsertContact } from "@/lib/pipeline";
 import { contact } from "@/lib/site";
 
@@ -59,7 +60,7 @@ export function Ask() {
               </button>
             </div>
             <div className="ask-bubble" style={{ marginTop: "0.75rem" }}>
-              <p style={{ margin: 0 }}>{node.prompt}</p>
+              <p style={{ margin: 0 }}>{pub(node.prompt)}</p>
               {node.human ? (
                 <p className="small" style={{ marginTop: "0.5rem" }}>
                   A person answers: <a className="link" href={`mailto:${contact.email}`}>{contact.email}</a>

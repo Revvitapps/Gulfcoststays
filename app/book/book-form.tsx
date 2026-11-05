@@ -3,6 +3,7 @@ import { useMemo, useState, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 import { CheckCircle2 } from "lucide-react";
 import { addDays, iso, money, toDate } from "@/lib/rates";
+import { QuotePanel } from "@/components/quote-panel";
 import { booking } from "@/lib/booking";
 import { newId, upsertContact } from "@/lib/pipeline";
 import { property } from "@/data/property";
@@ -17,9 +18,9 @@ function presetDates(preset: string | null) {
   return [iso(start), iso(addDays(start, 2))];
 }
 
-export function BookForm({ preset }: { preset: string | null }) {
+export function BookForm({ preset, checkIn: inProp, checkOut: outProp }: { preset: string | null; checkIn?: string; checkOut?: string }) {
   const router = useRouter();
-  const [defIn, defOut] = useMemo(() => presetDates(preset), [preset]);
+  const [defIn, defOut] = useMemo(() => (inProp && outProp ? [inProp, outProp] : presetDates(preset)), [preset, inProp, outProp]);
   const [checkIn, setCheckIn] = useState(defIn);
   const [checkOut, setCheckOut] = useState(defOut);
   const [guests, setGuests] = useState(2);
@@ -91,23 +92,7 @@ export function BookForm({ preset }: { preset: string | null }) {
       </div>
 
       <div className="grid">
-        <div className="quote" aria-live="polite">
-          <p className="eyebrow" style={{ margin: 0 }}>Your quote</p>
-          {q.count > 0 ? (
-            <>
-              <div className="line"><span>{q.count} night{q.count === 1 ? "" : "s"} × avg {money(q.average)}</span><span>{money(q.subtotal)}</span></div>
-              {q.lengthDiscount ? <div className="line"><span>{q.lengthLabel}</span><span>−{money(q.lengthDiscount)}</span></div> : null}
-              {q.launchDiscount ? <div className="line"><span>Launch pricing, 10% off</span><span>−{money(q.launchDiscount)}</span></div> : null}
-              <div className="line"><span>Cleaning fee</span><span>{money(q.cleaning)}</span></div>
-              <div className="line total"><span>Total before tax</span><span>{money(q.total)}</span></div>
-              <p className="small" style={{ margin: 0 }}>
-                {[...new Set(q.nights.map((n) => n.event ?? `${n.season} season`))].join(" · ")}. Florida and Okaloosa County lodging taxes are added on the confirmation.
-              </p>
-            </>
-          ) : (
-            <p className="small" style={{ margin: 0 }}>Pick your dates to see the price.</p>
-          )}
-        </div>
+        <QuotePanel q={q} />
         {!q.ok && q.count > 0 ? <p className="notice" role="status">{q.problem}</p> : null}
         {error ? <p className="notice notice-err" role="alert">{error}</p> : null}
         <button type="submit" className="button button-orange button-lg button-block" disabled={busy || !q.ok}>

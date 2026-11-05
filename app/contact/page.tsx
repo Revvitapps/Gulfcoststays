@@ -15,7 +15,7 @@ export default function ContactPage() {
           <h1 style={{ fontSize: "clamp(2.4rem, 7vw, 4.5rem)" }}>Say hello</h1>
           <p className="lede">Bookings, a month in winter, a question about the home. We answer within a few hours.</p>
           <p><a className="link" href={`mailto:${contact.email}`}>{contact.email}</a></p>
-          <p>{contact.phone ? <a className="link" href={`tel:${contact.phone}`}>{contact.phone}</a> : <span className="placeholder">{contact.phoneLabel}</span>}</p>
+          {contact.phone ? <p><a className="link" href={`tel:${contact.phone}`}>{contact.phone}</a></p> : null}
           <p className="small">Okaloosa Island, Fort Walton Beach, FL. The street address comes with your booking confirmation.</p>
         </div>
         <ContactForm />

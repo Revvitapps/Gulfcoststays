@@ -30,6 +30,16 @@ export const photos = {
 } satisfies Record<string, Photo>;
 
 export type PhotoKey = keyof typeof photos;
+
+/** Ink-and-watercolor sketches painted from Matthew's own photos. Art, not photos, and labelled as such on the page. */
+export type Art = { key: string; src: string; alt: string; w: number; h: number };
+export const sketches: Art[] = [
+  { key: "courtyard", src: "/photos/wc-courtyard.jpg", alt: "Watercolor sketch of the Island Retreat courtyard and the raised center building", w: 2752, h: 1536 },
+  { key: "beachWalk", src: "/photos/wc-beach-walk.jpg", alt: "Watercolor sketch of Blue Dolphin Beachwalk across Santa Rosa Boulevard", w: 2752, h: 1536 },
+  { key: "kitchen", src: "/photos/wc-kitchen.jpg", alt: "Watercolor sketch of the kitchen and dining table", w: 2400, h: 1792 },
+  { key: "bed1", src: "/photos/wc-bed1.jpg", alt: "Watercolor sketch of the main bedroom", w: 1792, h: 2400 },
+  { key: "tables", src: "/photos/wc-tables.jpg", alt: "Watercolor sketch of the picnic tables and parking under the building", w: 2400, h: 1792 },
+];
 /** Shot and on the site, in display order. */
 export const gallery: PhotoKey[] = ["kitchen", "bed1", "dining", "deck", "bed2", "beachWalk", "bed1Tv", "parking", "tables", "bed2Closet"];
 /** Still on Matthew's shot list. Rendered as plates, smaller, below the real photos. */

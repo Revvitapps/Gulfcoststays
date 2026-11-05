@@ -22,5 +22,5 @@ export const faqs = [
   { q: "Do you allow pets?", a: "Not at Island Retreat. [PLACEHOLDER: confirm HOA rule]" },
   { q: "Is there a minimum stay?", a: "Two nights in low season, three in spring and summer, four around the Fourth of July. The rates page shows every date." },
   { q: "Why book direct?", a: "No platform service fee, the same house, and you talk to the person who manages it. Weekly stays are 10% off, monthly 25% off, and launch pricing is 10% off through January 31, 2027." },
-  { q: "What is the cleaning fee?", a: "$135 per stay. Lodging taxes are added at booking as Florida and Okaloosa County require." },
+  { q: "What is the cleaning fee?", a: "One cleaning fee per stay, shown in your price when you pick dates. Lodging taxes are added as Florida and Okaloosa County require." },
 ];

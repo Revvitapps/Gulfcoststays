@@ -9,6 +9,7 @@
 - 2026-11-03: Prices come only from `data/island-retreat.json` (the pricing plan). Change rates there, never in components. `npm run check:rates` guards the math.
 - 2026-11-03: Booking is request-only until StayOS exposes availability and payment. `lib/booking.ts` is the adapter seam.
 - 2026-11-04: Look is rustic old-Florida, not resort: paper grain, ink rules, watercolor washes, flat buttons, matted photos (brief: project-files gulf-coast-stays/brand/hero/rustic-direction.md). Home hero is the ink-and-watercolor courtyard sketch (`public/brand/hero-sketch.jpg`), navy headline on paper, full stretch. Layout is full bleed: no content width cap.
+- 2026-11-05: Customer-facing. No season or nightly prices anywhere until a guest picks dates (`components/quote-widget.tsx` on /rates, `QuotePanel` on /book). Every quote shows the listing-site comparison at `PLATFORM_FEE` 15% (`lib/rates.ts`) and `DirectBenefits` runs on home, home page, rates and book. Placeholders are stripped from public copy by `lib/pub.ts`; the audit page still lists them. Five ink-and-watercolor sketches (`public/photos/wc-*.jpg`, `components/sketchbook.tsx`) are labelled as sketches, not photos.
 - Indexing stays off (`SITE_INDEXING` unset) until Matthew says launch.
 
 ### Open questions for Matthew

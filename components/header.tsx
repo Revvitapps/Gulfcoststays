@@ -5,7 +5,7 @@ import { brand } from "@/lib/site";
 
 const links = [
   { href: "/island-retreat", label: "The home" },
-  { href: "/rates", label: "Rates" },
+  { href: "/rates", label: "Price" },
   { href: "/area", label: "Area" },
   { href: "/about", label: "About" },
 ];

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ClipboardList, Download, Info, Mail, MessageCircleQuestion } from "lucide-react";
+import { Download, Info, Mail, MessageCircleQuestion } from "lucide-react";
 import { contact } from "@/lib/site";
 
 export const metadata = { title: "More", robots: { index: false, follow: false } };
@@ -8,7 +8,6 @@ const items = [
   { href: "/about", icon: Info, title: "About Gulf Coast Stays", detail: "Who we are, what's next" },
   { href: "/contact", icon: Mail, title: "Contact", detail: contact.email },
   { href: "#ask", icon: MessageCircleQuestion, title: "Ask a question", detail: "Quick answers, a human for the rest" },
-  { href: "/audit", icon: ClipboardList, title: "Launch audit", detail: "For the owner: what this prototype changes" },
 ];
 
 export default function MorePage() {

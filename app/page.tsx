@@ -6,7 +6,9 @@ import { JsonLd } from "@/components/json-ld";
 import { brand } from "@/lib/site";
 import { property } from "@/data/property";
 import { lodgingJsonLd } from "@/lib/seo";
-import { LAUNCH_UNTIL, money, nightly, iso } from "@/lib/rates";
+import { LAUNCH_UNTIL } from "@/lib/rates";
+import { DirectBenefits } from "@/components/direct";
+import { Sketchbook } from "@/components/sketchbook";
 
 // Rebuilt daily so "from $X this week" tracks the season.
 export const revalidate = 86400;
@@ -20,14 +22,13 @@ export const metadata = {
 const answers = [
   { href: "/book?preset=weekend", icon: Sun, title: "A beach weekend", detail: "Fri to Sun, walk to the Gulf, back for dinner" },
   { href: "/book?preset=week", icon: Waves, title: "A week in summer", detail: "7 nights, 10% off, kids at the Gulfarium" },
-  { href: "/rates#monthly", icon: Moon, title: "A month in winter", detail: "Snowbird rates from $2,300 in January" },
+  { href: "/book?preset=month", icon: Moon, title: "A month in winter", detail: "January and February by the month, 25% off" },
   { href: "/area", icon: Fish, title: "A fishing base", detail: "Pier, boat basin and a fryer for the catch" },
   { href: "/island-retreat", icon: Users, title: "Room for the family", detail: "Two real bedrooms, not a studio" },
-  { href: "/rates", icon: CalendarDays, title: "Just the rates", detail: "Every season and event, no login" },
+  { href: "/rates", icon: CalendarDays, title: "Just the price", detail: "Pick dates, see the exact price, no login" },
 ];
 
 export default function HomePage() {
-  const tonight = nightly(iso(new Date()));
   return (
     <>
       <JsonLd data={lodgingJsonLd()} />
@@ -52,9 +53,9 @@ export default function HomePage() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img className="hero-badge" src="/brand/island-retreat-badge-alt.webp" alt="Island Retreat badge" width={120} height={120} />
             <div>
-              <div className="stat wash wash-sea">
-                from {money(tonight.rate)}
-                <small>per night this week · {tonight.season.toLowerCase()} season</small>
+              <div className="stat wash wash-sea" style={{ fontSize: "1.9rem" }}>
+                No listing-site fee
+                <small>Pick your dates, see the exact price. About 15% less than the same stay on Airbnb or Vrbo.</small>
               </div>
               <p className="small" style={{ margin: "0.4rem 0 0" }}>
                 Launch pricing: 10% off through {new Date(LAUNCH_UNTIL + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
@@ -110,27 +111,19 @@ export default function HomePage() {
               ))}
             </ul>
             <p style={{ marginTop: "1rem" }}>
-              That honesty is the point. The Gulf-front towers average $341 a night. Island Retreat sits 30 to 40% under that, a walk from the same sand.
+              That honesty is the point. Same sand as the Gulf-front towers, a neighborhood price, and no listing-site fee when you book here.
             </p>
             <Link href="/rates" className="button">
-              See every rate
+              Check my dates
             </Link>
           </div>
         </div>
       </section>
 
       <hr className="ink-rule" />
-      <section className="band-sea section">
-        <div className="wrap row between">
-          <div>
-            <h2 style={{ marginBottom: "0.25rem" }}>Book direct, skip the fees</h2>
-            <p className="muted" style={{ margin: 0 }}>Same home as the listings, no service fee, a person on the other end.</p>
-          </div>
-          <Link href="/book" className="button button-orange button-lg">
-            Check my dates
-          </Link>
-        </div>
-      </section>
+      <Sketchbook keys={["courtyard", "beachWalk", "tables"]} heading="The place, in watercolor" />
+
+      <DirectBenefits heading="Book direct, skip the fees" />
     </>
   );
 }

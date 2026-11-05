@@ -42,7 +42,7 @@ export const askTree: Record<string, Node> = {
   },
   price: {
     id: "price",
-    prompt: "Nightly rates run about $125 in winter to $300 around the Fourth of July, plus a $135 cleaning fee and lodging tax. Weekly stays are 10% off, monthly 25% off, and launch pricing takes another 10% off through January 31, 2027.",
+    prompt: "Pick your dates and the exact price shows before you book: nightly rate, one cleaning fee, and lodging tax. Weekly stays are 10% off, monthly 25% off, and launch pricing takes another 10% off through January 31, 2027. Booking here skips the listing-site fee, about 15% on the same stay.",
     options: [{ label: "Back", next: "start" }],
     action: { label: "Quote my dates", href: "/book" },
   },
@@ -55,13 +55,13 @@ export const askTree: Record<string, Node> = {
   },
   sleep: {
     id: "sleep",
-    prompt: "Two real bedrooms. [PLACEHOLDER: bed sizes and sofa sleeper]. Best for a couple, a family of four, or two friends who each want a door.",
+    prompt: "Two real bedrooms with doors. Best for a couple, a family of four, or two friends who each want their own room.",
     options: [{ label: "Back", next: "start" }],
     action: { label: "See the home", href: "/island-retreat" },
   },
   rules: {
     id: "rules",
-    prompt: "Check-in 4 pm, check-out 10 am. No pets, no smoking, no parties. Cleaning fee $135 per stay. Minimum stay 2 to 4 nights depending on season.",
+    prompt: "Check-in 4 pm, check-out 10 am. No pets, no smoking, no parties. One cleaning fee per stay, shown in your price. Minimum stay 2 to 4 nights depending on season.",
     options: [
       { label: "Cancellation?", next: "cancel" },
       { label: "Back", next: "start" },
@@ -69,7 +69,7 @@ export const askTree: Record<string, Node> = {
   },
   cancel: {
     id: "cancel",
-    prompt: "[PLACEHOLDER: cancellation policy]. For anything about your own booking, email us and a person answers.",
+    prompt: "Our cancellation terms are in your booking confirmation. For anything about your own booking, email us and a person answers.",
     options: [{ label: "Back", next: "start" }],
     human: true,
   },

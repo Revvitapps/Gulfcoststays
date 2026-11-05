@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { brand, contact } from "@/lib/site";
+import { pub } from "@/lib/pub";
 
 export function Footer() {
   return (
@@ -14,25 +15,25 @@ export function Footer() {
               <br />
               {brand.collection} collection · Okaloosa Island, FL
             </p>
-            <p className="small" style={{ color: "rgba(255,255,255,0.6)" }}>{brand.legal}</p>
+            <p className="small" style={{ color: "rgba(255,255,255,0.6)" }}>{pub(brand.legal)}</p>
           </div>
           <div>
             <p className="eyebrow">Stay</p>
             <p><Link href="/island-retreat">Island Retreat</Link></p>
-            <p><Link href="/rates">Rates and seasons</Link></p>
+            <p><Link href="/rates">Your dates, your price</Link></p>
             <p><Link href="/book">Book direct</Link></p>
             <p><Link href="/area">Okaloosa Island guide</Link></p>
           </div>
           <div>
             <p className="eyebrow">Talk to us</p>
             <p><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
-            <p>{contact.phone ? <a href={`tel:${contact.phone}`}>{contact.phone}</a> : <span className="placeholder">{contact.phoneLabel}</span>}</p>
+            {contact.phone ? <p><a href={`tel:${contact.phone}`}>{contact.phone}</a></p> : null}
             <p><Link href="/contact">Contact</Link> · <Link href="/about">About</Link></p>
           </div>
         </div>
         <div className="credit">
-          <span>© {new Date().getFullYear()} {brand.name}. Rates before tax; Florida and Okaloosa County lodging taxes added at booking.</span>
-          <a className="volt" href="https://revvit.io" rel="noopener">Concept prototype by Revvit</a>
+          <span>© {new Date().getFullYear()} {brand.name}. Prices before tax; Florida and Okaloosa County lodging taxes shown before you book.</span>
+          <a className="volt" href="https://revvit.io" rel="noopener">Site by Revvit</a>
         </div>
       </div>
     </footer>

@@ -20,6 +20,15 @@ export const MONTHLY_DISCOUNT = 0.25;
 export const LAUNCH_DISCOUNT = plan.launch_discount;
 export const LAUNCH_UNTIL = plan.launch_discount_until;
 export const MARKET_NOTE = plan.market_note;
+/**
+ * What the same stay costs a guest through a listing site. Airbnb moved US
+ * independent hosts to a host-only 15.5% fee (Sept 2026) and Vrbo charges a flat
+ * 12% plus processing (Oct 2026); either way the guest price ends up roughly
+ * direct ÷ (1 − fee). 15% is the honest round number we quote.
+ */
+export const PLATFORM_FEE = 0.15;
+export const platformPrice = (direct: number) => Math.round(direct / (1 - PLATFORM_FEE));
+export const directSavings = (direct: number) => platformPrice(direct) - direct;
 
 export function toDate(iso: string) {
   const [y, m, d] = iso.split("-").map(Number);

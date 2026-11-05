@@ -3,7 +3,10 @@ import { BedDouble, Check, Clock, Footprints, Palmtree, X } from "lucide-react";
 import { Photo } from "@/components/photo";
 import { JsonLd } from "@/components/json-ld";
 import { property } from "@/data/property";
-import { gallery, stillToShoot } from "@/lib/photos";
+import { gallery } from "@/lib/photos";
+import { pub } from "@/lib/pub";
+import { DirectBenefits } from "@/components/direct";
+import { Sketchbook } from "@/components/sketchbook";
 import { lodgingJsonLd } from "@/lib/seo";
 
 export const metadata = {
@@ -11,17 +14,9 @@ export const metadata = {
   description: "Island Retreat: a raised two-bedroom condo on Okaloosa Island. Public beach access across the street, the boat basin a short walk, Gulfarium minutes away. Book direct.",
 };
 
-const Flag = ({ text }: { text: string }) => {
-  const m = text.match(/^(.*?)(\[PLACEHOLDER:[^\]]*\])(.*)$/);
-  if (!m) return <>{text}</>;
-  return (
-    <>
-      {m[1]}
-      <span className="placeholder">{m[2]}</span>
-      {m[3]}
-    </>
-  );
-};
+const Flag = ({ text }: { text: string }) => <>{pub(text)}</>;
+/** A labelled fact row that disappears while the fact is still unconfirmed. */
+const Fact = ({ label, text }: { label: string; text: string }) => (pub(text) ? <li><span>{label}: {pub(text)}</span></li> : null);
 
 export default function HomeDetailPage() {
   return (
@@ -52,16 +47,7 @@ export default function HomeDetailPage() {
           <Photo key={k} slot={k} className={`photo-bleed g${i + 1}`} sizes={i === 0 ? "(min-width: 900px) 66vw, 100vw" : "(min-width: 900px) 33vw, 50vw"} priority={i < 2} />
         ))}
       </section>
-      <section className="section-tight">
-        <div className="wrap">
-          <p className="eyebrow">Still to shoot</p>
-          <div className="grid" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 150px), 1fr))" }}>
-            {stillToShoot.map((k) => (
-              <Photo key={k} slot={k} className="photo-small" sizes="(min-width: 720px) 20vw, 50vw" plate />
-            ))}
-          </div>
-        </div>
-      </section>
+      <Sketchbook />
 
       <section className="section">
         <div className="wrap grid grid-2">
@@ -85,10 +71,11 @@ export default function HomeDetailPage() {
               <h3>Sleeps and spaces</h3>
               <ul className="list">
                 <li><span>Bedrooms: {property.bedrooms}</span></li>
-                <li><span>Bathrooms: <Flag text={property.bathrooms} /></span></li>
+                <Fact label="Bathrooms" text={property.bathrooms} />
                 <li><span>Sleeps: up to {property.sleeps} <Flag text={property.sleepsNote} /></span></li>
                 <li><span>Parking: <Flag text={property.parking} /></span></li>
-                <li><span>Wi-Fi: <Flag text={property.wifi} /></span></li>
+                <Fact label="Wi-Fi" text={property.wifi} />
+                <li><span>Laundry: none in the unit. Coin laundry and a laundromat are a short drive.</span></li>
               </ul>
             </div>
             <div className="card card-dark">
@@ -98,7 +85,7 @@ export default function HomeDetailPage() {
                 <li><Clock size={18} aria-hidden style={{ color: "var(--orange)" }} /> <span>Check-in 4 pm, check-out 10 am</span></li>
                 <li><Check size={18} aria-hidden style={{ color: "var(--orange)" }} /> <span>Minimum 2 to 4 nights by season</span></li>
               </ul>
-              <p className="small" style={{ marginTop: "0.5rem" }}>Cleaning fee $135 per stay. Lodging taxes added at booking.</p>
+              <p className="small" style={{ marginTop: "0.5rem" }}>One cleaning fee per stay and lodging taxes are shown in your price before you book.</p>
             </div>
             <div className="card card-sea">
               <h3>Straight talk</h3>
@@ -109,6 +96,8 @@ export default function HomeDetailPage() {
           </div>
         </div>
       </section>
+
+      <DirectBenefits />
 
       <section className="section-tight">
         <div className="wrap">

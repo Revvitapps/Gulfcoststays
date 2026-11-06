@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { Photo } from "@/components/photo";
+import { RevealCard } from "@/components/sketch-reveal";
 import { JsonLd } from "@/components/json-ld";
 import { faqs, kinds, spots } from "@/lib/area";
 import { pub } from "@/lib/pub";
 import { faqJsonLd } from "@/lib/seo";
-import { photos, type PhotoKey } from "@/lib/photos";
+import { sketchFor, type PhotoKey } from "@/lib/photos";
 
 export const metadata = {
   title: "Okaloosa Island guide | Beach, bay, Gulfarium, pier and where to eat",
@@ -26,7 +26,7 @@ export default function AreaPage() {
         <div className="wrap grid grid-2 grid-3">
           {spots.map((s) => (
             <article key={s.name} className="card" style={{ padding: 0, overflow: "hidden" }}>
-              {s.photo && photos[s.photo as PhotoKey].src ? <Photo slot={s.photo as PhotoKey} className="photo-wide" sizes="(min-width: 1024px) 33vw, (min-width: 720px) 50vw, 100vw" /> : null}
+              {s.photo && sketchFor(s.photo as PhotoKey) ? <RevealCard k={sketchFor(s.photo as PhotoKey)!.key} title={false} className="reveal-card-top" sizes="(min-width: 1024px) 33vw, (min-width: 720px) 50vw, 100vw" /> : null}
               <div style={{ padding: "1rem 1.1rem" }}>
                 <div className="row between">
                   <span className="chip chip-orange">{kinds[s.kind]}</span>

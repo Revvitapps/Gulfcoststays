@@ -1,14 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, CalendarDays, Compass, Fish, Moon, Sun, Users, Waves } from "lucide-react";
-import { Photo } from "@/components/photo";
 import { JsonLd } from "@/components/json-ld";
 import { brand } from "@/lib/site";
 import { property } from "@/data/property";
 import { lodgingJsonLd } from "@/lib/seo";
 import { LAUNCH_UNTIL } from "@/lib/rates";
 import { DirectBenefits } from "@/components/direct";
-import { SketchReveal } from "@/components/sketch-reveal";
+import { RevealCard, SketchReveal } from "@/components/sketch-reveal";
 
 // Rebuilt daily so "from $X this week" tracks the season.
 export const revalidate = 86400;
@@ -99,7 +98,7 @@ export default function HomePage() {
 
       <section className="section">
         <div className="wrap grid grid-2" style={{ alignItems: "center" }}>
-          <Photo slot="beachWalk" sizes="(min-width: 720px) 50vw, 100vw" />
+          <RevealCard k="beachWalk" className="reveal-solo" sizes="(min-width: 720px) 50vw, 100vw" />
           <div>
             <p className="eyebrow">Straight talk</p>
             <h2>What it is, and what it isn&apos;t</h2>
@@ -121,7 +120,7 @@ export default function HomePage() {
       </section>
 
       <hr className="ink-rule" />
-      <SketchReveal keys={["courtyard", "beachWalk", "tables"]} heading="The place, drawn and then real" lede="Painted from the home itself. Hover, or scroll past on your phone, and the photo shows through." />
+      <SketchReveal keys={["living", "kitchen", "bed1"]} heading="Dream it first, then find it real" lede="Painted from the home itself. Hover, or scroll past on your phone, and the real room shows through, just as it will be when you arrive." />
 
       <DirectBenefits heading="Book direct, skip the fees" />
     </>

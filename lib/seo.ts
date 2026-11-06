@@ -33,7 +33,7 @@ export function lodgingJsonLd() {
     image: abs("/pwa/og-default.png"),
     brand: { "@type": "Brand", name: brand.name },
     address: { "@type": "PostalAddress", addressLocality: "Fort Walton Beach", addressRegion: "FL", postalCode: "32548", addressCountry: "US" },
-    containsPlace: { "@type": "Accommodation", numberOfBedrooms: property.bedrooms, occupancy: { "@type": "QuantitativeValue", maxValue: property.sleeps } },
+    containsPlace: { "@type": "Accommodation", numberOfBedrooms: property.bedrooms, numberOfBathroomsTotal: 2, occupancy: { "@type": "QuantitativeValue", maxValue: property.sleeps } },
     petsAllowed: false,
     checkinTime: property.checkIn,
     checkoutTime: property.checkOut,

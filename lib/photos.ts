@@ -14,13 +14,13 @@ export const photos = {
   living: slot("living", "Living room toward the windows", "Living room at Island Retreat: a deep sofa, coral lamps, a tall palm by the window", "/photos/living.jpg"),
   kitchen: slot("kitchen", "Kitchen, island forward", "Kitchen at Island Retreat: a long island with stools, a full-size fridge and range", "/photos/kitchen.jpg"),
   dining: slot("dining", "Dining table", "Pub-height dining table for four at Island Retreat", "/photos/dining.jpg"),
-  bed1: slot("bed1", "Bedroom one, bed made, lamps on", "Main bedroom at Island Retreat: a made bed, dresser with an arched mirror and a TV", "/photos/bed1.jpg"),
-  bed1Tv: slot("bed1Tv", "Bedroom one, TV wall", "Main bedroom TV and dresser at Island Retreat", "/photos/bed1-tv.jpg"),
-  bed1Closet: slot("bed1Closet", "Bedroom one, closet", "Main bedroom closet at Island Retreat", "/photos/bed1-closet.jpg"),
-  bed2: slot("bed2", "Bedroom two", "Second bedroom at Island Retreat, with a bathroom through the door", "/photos/bed2.jpg"),
-  bath1: slot("bath1", "Bathroom off bedroom two", "Bathroom off the second bedroom at Island Retreat", "/photos/bath1.jpg"),
-  bath2: slot("bath2", "The other bathroom", "Bathroom with a tub at Island Retreat", "/photos/bath2.jpg"),
-  bed2Closet: slot("bed2Closet", "Bedroom two, dresser and closet", "Second bedroom dresser, TV and closet at Island Retreat", "/photos/bed2-closet.jpg"),
+  bed1: slot("bed1", "Bedroom two, bed made, lamps on", "Second bedroom at Island Retreat: a made bed, dresser with an arched mirror and a TV", "/photos/bed1.jpg"),
+  bed1Tv: slot("bed1Tv", "Bedroom two, TV wall", "Second bedroom TV and dresser at Island Retreat", "/photos/bed1-tv.jpg"),
+  bed1Closet: slot("bed1Closet", "Bedroom two, closet", "Second bedroom closet at Island Retreat", "/photos/bed1-closet.jpg"),
+  bed2: slot("bed2", "Master bedroom", "Master bedroom at Island Retreat, with its own bathroom through the door", "/photos/bed2.jpg"),
+  bath1: slot("bath1", "The master bath", "The master bedroom's own bathroom at Island Retreat", "/photos/bath1.jpg"),
+  bath2: slot("bath2", "The hall bath", "Hall bathroom with a tub at Island Retreat", "/photos/bath2.jpg"),
+  bed2Closet: slot("bed2Closet", "Master bedroom, dresser and closet", "Master bedroom dresser, TV and closet at Island Retreat", "/photos/bed2-closet.jpg"),
   deck: slot("deck", "Courtyard, stairs and the palm", "The courtyard at Island Retreat: the raised center building, its stairs and the palm", "/photos/courtyard.jpg"),
   parking: slot("parking", "Your spot under the building", "Parking spot under the building, painted Apt 1", "/photos/parking.jpg"),
   tables: slot("tables", "Picnic tables under the building", "Picnic tables in the shade under the raised building", "/photos/tables.jpg"),
@@ -41,10 +41,10 @@ export const sketches: Art[] = [
   { key: "living", src: "/photos/wc-living.jpg", alt: "Watercolor sketch of the living room", photo: "living", title: "The living room" },
   { key: "kitchen", src: "/photos/wc-kitchen.jpg", alt: "Watercolor sketch of the kitchen and island", photo: "kitchen", title: "The kitchen" },
   { key: "dining", src: "/photos/wc-dining.jpg", alt: "Watercolor sketch of the dining table", photo: "dining", title: "Supper for four" },
-  { key: "bed1", src: "/photos/wc-bed1.jpg", alt: "Watercolor sketch of the main bedroom", photo: "bed1", title: "Bedroom one" },
-  { key: "bed2", src: "/photos/wc-bed2.jpg", alt: "Watercolor sketch of the second bedroom", photo: "bed2", title: "Bedroom two" },
-  { key: "bath1", src: "/photos/wc-bath1.jpg", alt: "Watercolor sketch of the bathroom off bedroom two", photo: "bath1", title: "A bath off bedroom two" },
-  { key: "bath2", src: "/photos/wc-bath2.jpg", alt: "Watercolor sketch of the bathroom with a tub", photo: "bath2", title: "A tub for sandy kids" },
+  { key: "bed2", src: "/photos/wc-bed2.jpg", alt: "Watercolor sketch of the master bedroom", photo: "bed2", title: "The master bedroom" },
+  { key: "bath1", src: "/photos/wc-bath1.jpg", alt: "Watercolor sketch of the master bath", photo: "bath1", title: "The master's own bath" },
+  { key: "bed1", src: "/photos/wc-bed1.jpg", alt: "Watercolor sketch of the second bedroom", photo: "bed1", title: "Bedroom two" },
+  { key: "bath2", src: "/photos/wc-bath2.jpg", alt: "Watercolor sketch of the hall bath with a tub", photo: "bath2", title: "A hall tub for sandy kids" },
   { key: "tables", src: "/photos/wc-tables.jpg", alt: "Watercolor sketch of the picnic tables under the building", photo: "tables", title: "Picnic tables in the shade" },
   { key: "parking", src: "/photos/wc-parking.jpg", alt: "Watercolor sketch of the parking spot painted Apt 1", photo: "parking", title: "Your spot, painted Apt 1" },
   { key: "beachWalk", src: "/photos/wc-beach-walk.jpg", alt: "Watercolor sketch of Blue Dolphin Beachwalk across Santa Rosa Boulevard", photo: "beachWalk", title: "The beach, across the street" },
@@ -56,6 +56,6 @@ export const sketches: Art[] = [
 ];
 export const sketchFor = (photo: PhotoKey) => sketches.find((a) => a.photo === photo);
 /** Every room and corner of the home, in walk-through order. Each shows a sketch with the real photo behind it. */
-export const tour = ["courtyard", "living", "kitchen", "dining", "bed1", "bed2", "bath1", "bath2", "tables", "parking", "beachWalk"];
+export const tour = ["courtyard", "living", "kitchen", "dining", "bed2", "bath1", "bed1", "bath2", "tables", "parking", "beachWalk"];
 /** Still on the shot list. */
 export const stillToShoot: PhotoKey[] = ["hero"];

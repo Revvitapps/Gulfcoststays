@@ -23,7 +23,7 @@ const answers = [
   { href: "/book?preset=week", icon: Waves, title: "A week in summer", detail: "7 nights, 10% off, kids at the Gulfarium" },
   { href: "/book?preset=month", icon: Moon, title: "A month in winter", detail: "January and February by the month, 25% off" },
   { href: "/area", icon: Fish, title: "A fishing base", detail: "Pier, boat basin and a fryer for the catch" },
-  { href: "/island-retreat", icon: Users, title: "Room for the family", detail: "Two real bedrooms, not a studio" },
+  { href: "/island-retreat", icon: Users, title: "Room for the family", detail: "Two bedrooms, two baths, beach gear by the door" },
   { href: "/rates", icon: CalendarDays, title: "Just the price", detail: "Pick dates, see the exact price, no login" },
 ];
 
@@ -120,7 +120,7 @@ export default function HomePage() {
       </section>
 
       <hr className="ink-rule" />
-      <SketchReveal keys={["living", "kitchen", "bed1"]} heading="Dream it first, then find it real" lede="Painted from the home itself. Hover, or scroll past on your phone, and the real room shows through, just as it will be when you arrive." />
+      <SketchReveal keys={["living", "kitchen", "bed2"]} heading="Dream it first, then find it real" lede="Painted from the home itself. Hover, or scroll past on your phone, and the real room shows through, just as it will be when you arrive." />
 
       <DirectBenefits heading="Book direct, skip the fees" />
     </>

@@ -47,7 +47,7 @@ export default function HomeDetailPage() {
         <div className="wrap grid grid-2">
           <div>
             <p className="eyebrow">The home</p>
-            <h2>Two real bedrooms, a breeze, and the water both ways</h2>
+            <h2>Two bedrooms, two baths, and the water both ways</h2>
             <p>{property.summary}</p>
             <ul className="list">
               {property.features.map((f) => (
@@ -68,7 +68,9 @@ export default function HomeDetailPage() {
                 <Fact label="Bathrooms" text={property.bathrooms} />
                 <li><span>Sleeps: up to {property.sleeps} <Flag text={property.sleepsNote} /></span></li>
                 <li><span>Parking: <Flag text={property.parking} /></span></li>
-                <Fact label="Wi-Fi" text={property.wifi} />
+                <li><span>Internet: {property.wifi}</span></li>
+                <li><span>TVs: {property.tvs}, one in the living room and one in each bedroom</span></li>
+                <li><span>Beach gear: chairs, towels and supplies on the coat tree by the door</span></li>
                 <li><span>Laundry: none in the unit. Coin laundry and a laundromat are a short drive.</span></li>
               </ul>
             </div>

@@ -43,7 +43,7 @@ export function RevealCard({ k, wide, title = true, sizes, className = "" }: { k
       <Image className="reveal-sketch" src={art.src} alt="" fill sizes={sz} quality={85} />
       {photo.src ? <Image className="reveal-photo" src={photo.src} alt="" fill sizes={sz} quality={90} /> : null}
       {title ? <span className="reveal-title" aria-hidden>{art.title}</span> : null}
-      <span className="reveal-hint" aria-hidden>{on ? "The real thing" : "Sketch"}</span>
+      <span className="reveal-hint" aria-hidden>Sketch</span>
       {photo.credit ? <span className="photo-credit reveal-credit" aria-hidden>{photo.credit}</span> : null}
     </div>
   );

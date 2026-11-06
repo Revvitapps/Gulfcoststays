@@ -28,7 +28,7 @@ export const audit = {
     { name: "Phase 3 (StayOS)", items: ["Live calendar synced with the platforms", "Instant booking with card payment", "Guest portal: door code, house guide, local picks", "Second home joins the collection"] },
   ],
   decisions: [
-    "Bed sizes, bathroom count, sleeper sofa: what exactly sleeps where?",
+    "Bed sizes and sleeper sofa: what exactly sleeps where? (Baths answered: 2.)",
     "Phone number for the site (a Google Voice number on bookings@ is fine).",
     "Cancellation policy: moderate (full refund 14 days out) or strict?",
     "Pets: HOA says no? Confirm.",

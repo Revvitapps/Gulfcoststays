@@ -33,7 +33,7 @@ Gulf Coast Stays has no site yet, so this audit compares the platform-only path 
 
 ## Decisions needed from you
 
-1. Bed sizes, bathroom count, sleeper sofa: what exactly sleeps where?
+1. Bed sizes and sleeper sofa: what exactly sleeps where? (Baths answered Nov 6: 2, master en suite plus hall bath with tub.)
 2. Phone number for the site (a Google Voice number on bookings@ is fine).
 3. Cancellation policy: moderate (full refund 14 days out) or strict?
 4. Pets: HOA says no? Confirm.

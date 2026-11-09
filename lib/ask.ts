@@ -55,7 +55,7 @@ export const askTree: Record<string, Node> = {
   },
   sleep: {
     id: "sleep",
-    prompt: "Two real bedrooms with doors and two bathrooms: the master has its own bath, bedroom two is by the hall bath with a tub. Best for a couple, a family of four, or two friends who each want their own room.",
+    prompt: "Two real bedrooms with doors, a queen bed in each, and two bathrooms: the master has its own bath, bedroom two is by the hall bath with a tub. An air mattress makes room for two more. Best for a couple, a family of four to six, or two couples who each want their own room.",
     options: [{ label: "Back", next: "start" }],
     action: { label: "See the home", href: "/island-retreat" },
   },

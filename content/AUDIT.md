@@ -27,13 +27,13 @@ Gulf Coast Stays has no site yet, so this audit compares the platform-only path 
 
 **Phase 1 (this prototype):** brand site and installable PWA; rates from the pricing plan; booking requests to email or Slack; Search Console ready, noindex until launch.
 
-**Phase 2 (launch):** real photos in every slot; LLC name, phone, bed sizes, cancellation policy filled in; gulfcoaststays.co pointed at Vercel, indexing on, sitemap submitted; Airbnb and Vrbo listings live with links back.
+**Phase 2 (launch):** real photos in every slot; LLC name, phone, cancellation policy filled in; gulfcoaststays.co pointed at Vercel, indexing on, sitemap submitted; Airbnb and Vrbo listings live with links back.
 
 **Phase 3 (StayOS):** live calendar synced with the platforms; instant booking with card payment; guest portal (door code, house guide, local picks); second home joins the collection.
 
 ## Decisions needed from you
 
-1. Bed sizes and sleeper sofa: what exactly sleeps where? (Baths answered Nov 6: 2, master en suite plus hall bath with tub.)
+1. ~~Bed sizes~~ Answered Nov 9: a queen in each bedroom, no sleeper sofa, an air mattress; sleeps 6. Baths answered Nov 6: 2, master en suite plus hall bath with tub.
 2. Phone number for the site (a Google Voice number on bookings@ is fine).
 3. Cancellation policy: moderate (full refund 14 days out) or strict?
 4. Pets: HOA says no? Confirm.

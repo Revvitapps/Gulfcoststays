@@ -111,6 +111,15 @@ export const pages = [
     images: [],
     updated: "2026-11-10",
   },
+  {
+    path: "/privacy",
+    crumb: "Privacy",
+    title: "Privacy Policy",
+    description: "How Gulf Coast Stays handles what you send through the booking and contact forms, what Vercel Analytics and Google Analytics measure, and how to opt out.",
+    image: ogDefault,
+    images: [],
+    updated: "2026-11-10",
+  },
 ] as const satisfies readonly {
   path: string; crumb: string; title: string; absolute?: boolean; description: string; image: Img; images: readonly string[]; updated: string;
 }[];

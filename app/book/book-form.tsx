@@ -1,6 +1,7 @@
 "use client";
 import { useMemo, useState, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { addDays, iso, money, toDate } from "@/lib/rates";
 import { QuotePanel } from "@/components/quote-panel";
@@ -102,6 +103,9 @@ export function BookForm({ preset, checkIn: inProp, checkOut: outProp }: { prese
         </button>
         <p className="small" style={{ margin: 0 }}>
           <CheckCircle2 size={14} style={{ display: "inline", verticalAlign: "-2px", color: "var(--ok)" }} /> No charge now. We confirm availability and send a secure payment link by email. Live calendar and instant booking arrive with StayOS.
+        </p>
+        <p className="small" style={{ margin: 0 }}>
+          How we handle your details: <Link className="link" href="/privacy">Privacy</Link>
         </p>
       </div>
     </form>

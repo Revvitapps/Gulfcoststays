@@ -35,6 +35,7 @@ function body() {
     link("/faq", "Questions and answers"),
     link("/about", "About"),
     link("/contact", "Contact"),
+    link("/privacy", "Privacy policy"),
     "",
     "## Island Retreat facts",
     "",

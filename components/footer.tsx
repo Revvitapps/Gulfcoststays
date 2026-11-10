@@ -29,7 +29,7 @@ export function Footer() {
             <p className="eyebrow">Talk to us</p>
             <p><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
             {contact.phone ? <p><a href={`tel:${contact.phone}`}>{contact.phone}</a></p> : null}
-            <p><Link href="/contact">Contact</Link> · <Link href="/about">About</Link></p>
+            <p><Link href="/contact">Contact</Link> · <Link href="/about">About</Link> · <Link href="/privacy">Privacy</Link></p>
           </div>
         </div>
         <div className="credit">

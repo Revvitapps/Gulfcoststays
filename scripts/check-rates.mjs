@@ -11,26 +11,26 @@ writeFileSync(".cache/rates.mjs", ts.transpileModule(src, { compilerOptions: { m
 const { nightly, quote, seasonTable, eventTable } = await import("../.cache/rates.mjs");
 
 // Season rates: November Sunday = low weekday, Friday = low weekend.
-assert.equal(nightly("2026-11-08").rate, 135);
-assert.equal(nightly("2026-11-06").rate, 155);
+assert.equal(nightly("2026-11-08").rate, 140);
+assert.equal(nightly("2026-11-06").rate, 161);
 assert.equal(nightly("2026-11-06").weekend, true);
-// Event overrides season: Fourth of July $325, min 4.
-assert.equal(nightly("2027-07-03").rate, 325);
+// Event overrides season: Fourth of July $337, min 4.
+assert.equal(nightly("2027-07-03").rate, 337);
 assert.equal(nightly("2027-07-03").minNights, 4);
 assert.equal(nightly("2027-07-03").event, "Fourth of July");
 // New Year's Eve sits inside Christmas range but is listed later; first match wins (Christmas range).
 assert.equal(nightly("2026-12-31").event, "Christmas & New Year");
 
-// Weekend in March 2027 (shoulder): Fri 12 + Sat 13 = 205 + 205, min 3 nights → not ok.
+// Weekend in March 2027 (shoulder): Fri 12 + Sat 13 = 212 + 212, min 3 nights → not ok.
 const w = quote("2027-03-12", "2027-03-14", "2026-11-03");
 assert.equal(w.count, 2);
 assert.equal(w.ok, false);
 assert.match(w.problem, /at least 3/);
 
-// 7 nights in June 2027 (peak, 265/300): Sat 5 .. Fri 11 → inside Billy Bowlegs 4-6 ($320) for 5,6; then 7-10 weekday 265; 11 Fri 300.
+// 7 nights in June 2027 (peak, 275/311): Sat 5 .. Fri 11 → inside Billy Bowlegs 4-6 ($332) for 5,6; then 7-10 weekday 275; 11 Fri 311.
 const week = quote("2027-06-05", "2027-06-12", "2026-11-03");
 assert.equal(week.count, 7);
-assert.equal(week.subtotal, 320 + 320 + 265 * 4 + 300);
+assert.equal(week.subtotal, 332 + 332 + 275 * 4 + 311);
 assert.equal(week.lengthDiscount, Math.round(week.subtotal * 0.1));
 assert.equal(week.launchDiscount, Math.round((week.subtotal - week.lengthDiscount) * 0.1));
 assert.equal(week.cleaning, 135);

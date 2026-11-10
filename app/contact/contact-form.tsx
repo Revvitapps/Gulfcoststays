@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { upsertContact } from "@/lib/pipeline";
+import { track } from "@/lib/analytics";
 
 export function ContactForm() {
   const [name, setName] = useState("");
@@ -13,6 +14,7 @@ export function ContactForm() {
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || !note.trim()) return setState("error");
     setState("busy");
     await upsertContact({ kind: "inquiry", name, email, note });
+    track("contact_submit");
     setState("done");
   }
 

@@ -1,13 +1,14 @@
 import { contact } from "@/lib/site";
 import { ContactForm } from "./contact-form";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Contact Gulf Coast Stays",
-  description: "Email bookings@gulfcoaststays.co or send a note. Questions about Island Retreat, a group, a month-long stay, or a future home in the collection.",
-};
+export const metadata = pageMetadata("/contact");
 
 export default function ContactPage() {
   return (
+    <>
+    <JsonLd data={breadcrumbJsonLd("/contact")} />
     <section className="section-tight">
       <div className="wrap grid grid-2">
         <div>
@@ -21,5 +22,6 @@ export default function ContactPage() {
         <ContactForm />
       </div>
     </section>
+    </>
   );
 }

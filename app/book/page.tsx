@@ -1,16 +1,16 @@
 import { BookForm } from "./book-form";
 import { contact } from "@/lib/site";
 import { DirectBenefits } from "@/components/direct";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Book Island Retreat direct | No platform fees",
-  description: "Pick your dates, see the exact price with discounts and cleaning fee, and send a booking request for Island Retreat on Okaloosa Island. A person confirms by email.",
-};
+export const metadata = pageMetadata("/book");
 
 export default async function BookPage({ searchParams }: { searchParams: Promise<{ preset?: string; in?: string; out?: string }> }) {
   const { preset, in: checkIn, out: checkOut } = await searchParams;
   return (
     <>
+    <JsonLd data={breadcrumbJsonLd("/book")} />
     <section className="section-tight">
       <div className="wrap">
         <p className="eyebrow">Direct booking</p>

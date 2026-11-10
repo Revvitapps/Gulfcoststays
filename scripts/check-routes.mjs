@@ -41,6 +41,8 @@ try {
   await expectPage("/rates", ["Your dates, your price", "Snowbird", "No listing-site fee"]);
   await expectPage("/book", ["Check your dates", "Request these dates"]);
   await expectPage("/area", ["Gulfarium", "FAQPage"]);
+  await expectPage("/faq", ["Questions guests ask", "FAQPage", "BreadcrumbList"]);
+  await expectPage("/llms.txt", ["# Gulf Coast Stays", "Notes for accurate representation"]);
   for (const p of ["/about", "/contact", "/more", "/audit", "/thanks"]) await expectPage(p, "Gulf Coast Stays");
   // Every tab bar and header link has a page.
   const home = await expectPage("/", []);

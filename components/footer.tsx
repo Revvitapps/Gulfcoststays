@@ -23,6 +23,7 @@ export function Footer() {
             <p><Link href="/rates">Your dates, your price</Link></p>
             <p><Link href="/book">Book direct</Link></p>
             <p><Link href="/area">Okaloosa Island guide</Link></p>
+            <p><Link href="/faq">Questions</Link></p>
           </div>
           <div>
             <p className="eyebrow">Talk to us</p>

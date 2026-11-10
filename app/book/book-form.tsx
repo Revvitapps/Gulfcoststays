@@ -7,6 +7,7 @@ import { QuotePanel } from "@/components/quote-panel";
 import { booking } from "@/lib/booking";
 import { newId, upsertContact } from "@/lib/pipeline";
 import { property } from "@/data/property";
+import { track } from "@/lib/analytics";
 
 /** Next Friday (or today if Friday) as a sensible default. */
 function presetDates(preset: string | null) {
@@ -47,6 +48,7 @@ export function BookForm({ preset, checkIn: inProp, checkOut: outProp }: { prese
     try {
       sessionStorage.setItem("gcs:last-request", JSON.stringify({ reference: result.reference, message: result.message, checkIn, checkOut, total: q.total, count: q.count }));
     } catch {}
+    track("booking_request", { nights: q.count });
     router.push("/thanks");
   }
 

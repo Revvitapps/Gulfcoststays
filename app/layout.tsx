@@ -9,8 +9,9 @@ import { Pwa } from "@/components/pwa";
 import { InstallPrompt } from "@/components/install-prompt";
 import { Ask } from "@/components/ask";
 import { JsonLd } from "@/components/json-ld";
+import { GoogleAnalytics } from "@/components/google-analytics";
 import { brand } from "@/lib/site";
-import { indexable, organizationJsonLd, siteUrl } from "@/lib/seo";
+import { indexable, siteJsonLd, siteUrl } from "@/lib/seo";
 
 // Brand guide v3: Bebas Neue for headlines and labels, Kaushan Script for the
 // orange accent word, Inter for body copy. All self-hosted at build.
@@ -18,17 +19,17 @@ const display = Bebas_Neue({ weight: "400", subsets: ["latin"], variable: "--fon
 const script = Kaushan_Script({ weight: "400", subsets: ["latin"], variable: "--font-script", display: "swap" });
 const body = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 
-// Until launch, share links resolve on the deployment itself.
+// Previews resolve share links on the deployment itself.
 const previewHost = !indexable && process.env.VERCEL_PROJECT_PRODUCTION_URL;
 
 export const metadata: Metadata = {
   metadataBase: new URL(previewHost ? `https://${previewHost}` : siteUrl),
   alternates: { canonical: "./" },
-  title: { default: `${brand.name} | Island Retreat, Fort Walton Beach Condo on Okaloosa Island`, template: `%s | ${brand.name}` },
   description: brand.description,
+  title: { default: `Fort Walton Beach Condo on Okaloosa Island | ${brand.name}`, template: `%s | ${brand.name}` },
   applicationName: brand.name,
-  openGraph: { type: "website", siteName: brand.name, url: siteUrl, images: ["/pwa/og-default.png"] },
-  twitter: { card: "summary_large_image" },
+  openGraph: { type: "website", siteName: brand.name, locale: "en_US", url: siteUrl, images: [{ url: "/pwa/og-default.png", width: 1200, height: 630, alt: brand.name }] },
+  twitter: { card: "summary_large_image", images: ["/pwa/og-default.png"] },
   appleWebApp: { capable: true, title: brand.name, statusBarStyle: "black-translucent" },
   other: { "apple-mobile-web-app-capable": "yes" },
   manifest: "/manifest.webmanifest",
@@ -41,7 +42,14 @@ export const metadata: Metadata = {
   },
   formatDetection: { telephone: true },
   robots: indexable ? { index: true, follow: true } : { index: false, follow: false },
+  verification: {
+    ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } : {}),
+    ...(process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION ? { other: { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION } } : {}),
+  },
 };
+
+// GA4 loads on the Vercel production deployment only, once NEXT_PUBLIC_GA_ID is set.
+const gaId = process.env.VERCEL_ENV === "production" ? process.env.NEXT_PUBLIC_GA_ID : undefined;
 
 export const viewport: Viewport = {
   themeColor: "#0f1e2e",
@@ -62,8 +70,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <InstallPrompt />
         <Ask />
         <TabBar />
-        <JsonLd data={organizationJsonLd()} />
+        <JsonLd data={siteJsonLd()} />
         <Analytics />
+        <GoogleAnalytics id={gaId} />
       </body>
     </html>
   );

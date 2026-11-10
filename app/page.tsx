@@ -4,7 +4,7 @@ import { ArrowRight, CalendarDays, Compass, Fish, Moon, Sun, Users, Waves } from
 import { JsonLd } from "@/components/json-ld";
 import { brand } from "@/lib/site";
 import { property } from "@/data/property";
-import { lodgingJsonLd } from "@/lib/seo";
+import { lodgingJsonLd, pageMetadata } from "@/lib/seo";
 import { LAUNCH_UNTIL } from "@/lib/rates";
 import { DirectBenefits } from "@/components/direct";
 import { RevealCard, SketchReveal } from "@/components/sketch-reveal";
@@ -12,10 +12,7 @@ import { RevealCard, SketchReveal } from "@/components/sketch-reveal";
 // Rebuilt daily so "from $X this week" tracks the season.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: `${brand.name} | Island Retreat, a Fort Walton Beach condo on Okaloosa Island`,
-  description: `Book Island Retreat direct: a 2-bedroom condo on stilts on Okaloosa Island, Fort Walton Beach. Beach across the street, bay a short walk. No platform fees.`,
-};
+export const metadata = pageMetadata("/");
 
 // "What do you need?" answers. Each one lands on a priced or concrete outcome.
 const answers = [
@@ -38,7 +35,7 @@ export default function HomePage() {
             <h1>
               Walk to the Gulf <span className="script" style={{ fontSize: "0.5em", display: "block" }}>one way,</span> the bay the other.
             </h1>
-            <p className="lede">{property.summary}</p>
+            <p className="lede">{brand.description}</p>
             <div className="row" style={{ marginTop: "0.5rem" }}>
               <Link href="/book" className="button button-orange button-lg">
                 Book direct <ArrowRight size={20} />

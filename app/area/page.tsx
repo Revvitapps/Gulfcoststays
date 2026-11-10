@@ -3,18 +3,16 @@ import { RevealCard } from "@/components/sketch-reveal";
 import { JsonLd } from "@/components/json-ld";
 import { faqs, kinds, spots } from "@/lib/area";
 import { pub } from "@/lib/pub";
-import { faqJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, faqJsonLd, pageMetadata } from "@/lib/seo";
 import { sketchFor, type PhotoKey } from "@/lib/photos";
 
-export const metadata = {
-  title: "Okaloosa Island guide | Beach, bay, Gulfarium, pier and where to eat",
-  description: "What's around Island Retreat on Okaloosa Island: the beach across the street, the boat basin, Gulfarium, the pier and Boardwalk, Stewby's, and downtown Fort Walton Beach.",
-};
+export const metadata = pageMetadata("/area");
 
 export default function AreaPage() {
   return (
     <>
       <JsonLd data={faqJsonLd(faqs)} />
+      <JsonLd data={breadcrumbJsonLd("/area")} />
       <section className="section-tight">
         <div className="wrap">
           <p className="eyebrow">Okaloosa Island</p>
@@ -52,7 +50,10 @@ export default function AreaPage() {
                 <p style={{ margin: "0.5rem 0 0" }}>{pub(f.a)}</p>
               </details>
             ))}
-            <Link href="/book" className="button button-orange" style={{ marginTop: "0.75rem" }}>Check my dates</Link>
+            <div className="row" style={{ marginTop: "0.75rem" }}>
+              <Link href="/book" className="button button-orange">Check my dates</Link>
+              <Link href="/faq" className="button button-ghost">More questions</Link>
+            </div>
           </div>
         </div>
       </section>

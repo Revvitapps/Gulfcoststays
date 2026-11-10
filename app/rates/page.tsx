@@ -2,16 +2,16 @@ import Link from "next/link";
 import { seasonTable } from "@/lib/rates";
 import { QuoteWidget } from "@/components/quote-widget";
 import { DirectBenefits } from "@/components/direct";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Your dates, your price | Island Retreat, Fort Walton Beach",
-  description: "Pick your dates and see the exact price for Island Retreat on Okaloosa Island, with discounts, the cleaning fee and what you save by booking direct. No login.",
-};
+export const metadata = pageMetadata("/rates");
 
 export default function RatesPage() {
   const seasons = seasonTable();
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd("/rates")} />
       <section className="section-tight">
         <div className="wrap">
           <p className="eyebrow">No login, no surprise fees</p>

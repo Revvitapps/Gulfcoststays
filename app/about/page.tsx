@@ -1,15 +1,15 @@
 import { pub } from "@/lib/pub";
 import Link from "next/link";
 import { brand } from "@/lib/site";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "About Gulf Coast Stays | Real homes on the Emerald Coast",
-  description: "A small, owner-run collection of vacation homes on Florida's Gulf Coast, starting with Island Retreat in Fort Walton Beach. Direct booking, straight talk.",
-};
+export const metadata = pageMetadata("/about");
 
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd("/about")} />
       <section className="section-tight">
         <div className="wrap grid grid-2" style={{ alignItems: "center" }}>
           <div>

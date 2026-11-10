@@ -5,12 +5,9 @@ import { property } from "@/data/property";
 import { pub } from "@/lib/pub";
 import { DirectBenefits } from "@/components/direct";
 import { SketchReveal } from "@/components/sketch-reveal";
-import { lodgingJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, lodgingJsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Island Retreat | 2-bedroom Fort Walton Beach condo on Okaloosa Island",
-  description: "Island Retreat: a raised two-bedroom condo on Okaloosa Island. Public beach access across the street, the boat basin a short walk, Gulfarium minutes away. Book direct.",
-};
+export const metadata = pageMetadata("/island-retreat");
 
 const Flag = ({ text }: { text: string }) => <>{pub(text)}</>;
 /** A labelled fact row that disappears while the fact is still unconfirmed. */
@@ -20,6 +17,7 @@ export default function HomeDetailPage() {
   return (
     <>
       <JsonLd data={lodgingJsonLd()} />
+      <JsonLd data={breadcrumbJsonLd("/island-retreat")} />
       <section className="section-tight">
         <div className="wrap">
           <div className="row between" style={{ alignItems: "flex-end" }}>

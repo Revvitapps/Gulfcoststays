@@ -1,0 +1,34 @@
+# Pings IndexNow after each successful production deploy, so Bing (which feeds
+# ChatGPT search and Copilot) picks up changes the same day. No secrets: the
+# IndexNow key is public by design.
+#
+# Vercel reports this project to GitHub as a commit status ("Vercel"), not as a
+# GitHub Deployment, so the `status` trigger is the one that fires today. The
+# `deployment_status` trigger covers Vercel's deployment events if they are
+# turned on later.
+name: IndexNow
+
+on:
+  deployment_status:
+  status:
+  workflow_dispatch:
+
+jobs:
+  ping:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'deployment_status' &&
+        github.event.deployment_status.state == 'success' &&
+        github.event.deployment.environment == 'Production') ||
+      (github.event_name == 'status' &&
+        github.event.context == 'Vercel' &&
+        github.event.state == 'success' &&
+        contains(github.event.branches.*.name, 'main'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/indexnow.mjs

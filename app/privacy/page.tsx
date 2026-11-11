@@ -12,6 +12,8 @@ export const metadata = pageMetadata("/privacy");
  * is set). Change the effective date and `updated` in lib/seo.ts together.
  */
 const effective = "November 10, 2026";
+// GA4 paragraphs show only once the tag can actually load, so the page never names a tool the site doesn't use.
+const ga4 = Boolean(process.env.NEXT_PUBLIC_GA_ID);
 
 export default function PrivacyPage() {
   const mail = <a className="link" href={`mailto:${contact.email}`}>{contact.email}</a>;
@@ -38,13 +40,19 @@ export default function PrivacyPage() {
           <p>We don&apos;t send marketing email unless you ask us to, for example to hear when a new home opens.</p>
 
           <h2>Where your details go</h2>
-          <p>Form submissions go to this website&apos;s server, which is hosted by Vercel, and on to the tools we use to read and answer requests. A copy of what you sent is also kept in your own browser&apos;s storage so a request can finish sending if you lose signal; it stays on your device.</p>
+          <p>Form submissions go to this website&apos;s server, which is hosted by Vercel, and emailed to us through Resend, the service we use to send and receive booking email. A copy of what you sent is also kept in your own browser&apos;s storage so a request can finish sending if you lose signal; it stays on your device.</p>
 
           <h2>Analytics and cookies</h2>
           <p><strong>Vercel Web Analytics</strong> counts page views and visits. Vercel says it does this without cookies and without identifying you across sites.</p>
-          <p><strong>Google Analytics 4</strong> measures how people find and use the site: pages viewed, time on page, rough location from IP address, device and browser. It sets cookies (names starting with <code>_ga</code>) to tell visits apart. We also send it two events, &ldquo;booking request sent&rdquo; (with the number of nights) and &ldquo;contact form sent&rdquo;. We never send it your name, email, phone or message. Google&apos;s explanation of how it uses this data is at <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">policies.google.com/technologies/partner-sites</a>.</p>
-          <p>The site also uses your browser&apos;s local storage (not cookies) to remember things like whether you closed the &ldquo;add to home screen&rdquo; banner, and a service worker to keep pages working offline. Fonts and photos are served from this site, not from third parties.</p>
-          <p><strong>To opt out</strong>: block or delete cookies in your browser settings, or install Google&apos;s <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener">Google Analytics opt-out browser add-on</a>. Clearing your browser&apos;s site data for gulfcoaststays.co removes the local storage and the offline copy too. The site still works either way.</p>
+          {ga4 ? (
+            <p><strong>Google Analytics 4</strong> measures how people find and use the site: pages viewed, time on page, rough location from IP address, device and browser. It sets cookies (names starting with <code>_ga</code>) to tell visits apart. We also send it two events, &ldquo;booking request sent&rdquo; (with the number of nights) and &ldquo;contact form sent&rdquo;. We never send it your name, email, phone or message. Google&apos;s explanation of how it uses this data is at <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">policies.google.com/technologies/partner-sites</a>.</p>
+          ) : null}
+          <p>The site also uses your browser&apos;s local storage (not cookies) to remember things like whether you closed the &ldquo;add to home screen&rdquo; banner, and a service worker to keep pages working offline. Fonts, photos and scripts are served from this site, not from Google or other third parties. Nothing on the site sets a cookie unless Google Analytics is switched on.</p>
+          {ga4 ? (
+            <p><strong>To opt out</strong>: block or delete cookies in your browser settings, or install Google&apos;s <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener">Google Analytics opt-out browser add-on</a>. Clearing your browser&apos;s site data for gulfcoaststays.co removes the local storage and the offline copy too. The site still works either way.</p>
+          ) : (
+            <p>Clearing your browser&apos;s site data for gulfcoaststays.co removes the local storage and the offline copy. The site still works either way.</p>
+          )}
 
           <h2>Sharing</h2>
           <p>We do not sell your personal information, and we do not share it for advertising. We share it only with the service providers that run the site and our business (hosting, analytics, email, payments) so they can do that work for us, or when the law requires it or we need to protect our guests, our homes or ourselves.</p>

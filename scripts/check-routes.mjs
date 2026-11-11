@@ -38,7 +38,7 @@ try {
   await waitForServer();
   await expectPage("/", ["What do you need?", "Book direct", "VacationRental"]);
   await expectPage("/island-retreat", ["Island Retreat", "House rules", "application/ld+json"]);
-  await expectPage("/rates", ["Your dates, your price", "Snowbird", "No listing-site fee"]);
+  await expectPage("/rates", ["Your dates, your price", "Snowbird", "No booking fee"]);
   await expectPage("/book", ["Check your dates", "Request these dates"]);
   await expectPage("/area", ["Gulfarium", "FAQPage"]);
   await expectPage("/faq", ["Questions guests ask", "FAQPage", "BreadcrumbList"]);

@@ -5,7 +5,7 @@ export const brand = {
   collection: "Fort Walton Beach",
   tagline: "Walk to the Gulf beach one way, the bay the other.",
   description:
-    "Gulf Coast Stays rents real homes on Florida's Emerald Coast, starting with Island Retreat on Okaloosa Island in Fort Walton Beach. Book direct, no platform fees.",
+    "Gulf Coast Stays rents real homes on Florida's Emerald Coast, starting with Island Retreat on Okaloosa Island in Fort Walton Beach. Book direct, no booking fees.",
   legal: "Gulf Coast Stays LLC [PLACEHOLDER: pending Sunbiz filing]",
 };
 

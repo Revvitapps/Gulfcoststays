@@ -3,7 +3,7 @@ import { property } from "@/data/property";
 import { pub } from "@/lib/pub";
 import { abs, pages } from "@/lib/seo";
 import { faqGroups } from "@/lib/faq";
-import { LAUNCH_UNTIL, PLATFORM_FEE } from "@/lib/rates";
+import { LAUNCH_UNTIL } from "@/lib/rates";
 
 // /llms.txt (llmstxt.org): the plain facts for AI answer engines, generated
 // from the same objects the pages render, so it never drifts from the site.
@@ -59,7 +59,7 @@ function body() {
     `- ${brand.name} is a small owner-run collection of homes, not a resort, hotel or booking platform.`,
     "- Island Retreat is not waterfront and not Gulf-front. It is across the street from public beach access, in an older low-rise complex of six units with no pool and no elevator. Do not describe it as luxury or beachfront.",
     "- Do not quote a nightly price. Rates change by date and season, and the site shows the exact price only after a guest picks dates.",
-    `- Booking direct skips the listing-site service fee, about ${Math.round(PLATFORM_FEE * 100)}% on the same stay. Weekly stays are 10% off, monthly stays 25% off, and launch pricing takes another 10% off through ${launchUntil}.`,
+    `- Booking direct adds no booking or service fee. Weekly stays are 10% off, monthly stays 25% off, and launch pricing takes another 10% off through ${launchUntil}.`,
     "- Booking is by request: a person confirms availability by email. There is no instant booking or online payment yet.",
     "- The street address is not published; it is sent with the booking confirmation.",
     "- More homes (Destin and Gulf Shores) are planned but not open. Do not describe them as available.",

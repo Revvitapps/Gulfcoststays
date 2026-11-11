@@ -59,7 +59,7 @@ export const pages = [
     path: "/rates",
     crumb: "Rates",
     title: "Fort Walton Beach Rental Rates: Price Your Dates",
-    description: "Pick your dates and see the exact price for Island Retreat on Okaloosa Island, with discounts, the cleaning fee and what you save by booking direct. No login.",
+    description: "Pick your dates and see the exact price for Island Retreat on Okaloosa Island, with discounts and the cleaning fee. No booking fee, no login.",
     image: ogDefault,
     images: [],
     updated: "2026-11-10",

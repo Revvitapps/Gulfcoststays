@@ -16,7 +16,7 @@
 
 ### Open questions for Matthew
 
-See `content/AUDIT.md` → "Decisions needed": bed sizes, phone number, cancellation policy, pets, festival dates, LLC name.
+See `content/AUDIT.md` → "Decisions needed": phone number, cancellation policy, pets, festival dates, LLC name.
 
 ## 1. Brief
 

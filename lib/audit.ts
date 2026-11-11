@@ -24,11 +24,10 @@ export const audit = {
   ],
   phases: [
     { name: "Phase 1 (this prototype)", items: ["Brand site and installable PWA", "Rates from the pricing plan", "Booking requests to email or Slack", "Search Console ready, noindex until launch"] },
-    { name: "Phase 2 (launch)", items: ["Real photos in every slot", "LLC name, phone, bed sizes, cancellation policy filled in", "gulfcoaststays.co pointed at Vercel, indexing on, sitemap submitted", "Airbnb and Vrbo listings live with links back"] },
+    { name: "Phase 2 (launch)", items: ["Real photos in every slot", "LLC name, phone, cancellation policy filled in", "gulfcoaststays.co pointed at Vercel, indexing on, sitemap submitted", "Airbnb and Vrbo listings live with links back"] },
     { name: "Phase 3 (StayOS)", items: ["Live calendar synced with the platforms", "Instant booking with card payment", "Guest portal: door code, house guide, local picks", "Second home joins the collection"] },
   ],
   decisions: [
-    "Bed sizes and sleeper sofa: what exactly sleeps where? (Baths answered: 2.)",
     "Phone number for the site (a Google Voice number on bookings@ is fine).",
     "Cancellation policy: moderate (full refund 14 days out) or strict?",
     "Pets: HOA says no? Confirm.",

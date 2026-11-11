@@ -20,7 +20,7 @@ import http from "node:http";
 
 const port = Number(process.env.CHECK_PORT ?? "3997");
 const site = "https://gulfcoaststays.co";
-const indexable = ["/", "/island-retreat", "/rates", "/book", "/area", "/faq", "/about", "/contact"];
+const indexable = ["/", "/island-retreat", "/rates", "/book", "/area", "/faq", "/about", "/contact", "/privacy"];
 const hidden = ["/more", "/audit", "/thanks"];
 const answerCrawlers = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User", "PerplexityBot", "Perplexity-User", "Google-Extended", "Applebot-Extended", "Bingbot", "DuckAssistBot", "CCBot", "meta-externalagent"];
 const builtOnly = process.argv.includes("--built");

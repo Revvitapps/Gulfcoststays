@@ -16,7 +16,7 @@ export default function RatesPage() {
         <div className="wrap">
           <p className="eyebrow">No login, no surprise fees</p>
           <h1 style={{ fontSize: "clamp(2.4rem, 7vw, 4.5rem)" }}>Your dates, your price</h1>
-          <p className="lede">Pick dates and the exact price shows: nightly, any discounts, the cleaning fee, and what the same stay would cost through a listing site. Nothing is charged until a person confirms.</p>
+          <p className="lede">Pick dates and the exact price shows: nightly, any discounts, and the cleaning fee. Nothing is charged until a person confirms.</p>
         </div>
       </section>
 

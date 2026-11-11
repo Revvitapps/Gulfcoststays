@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { upsertContact } from "@/lib/pipeline";
 import { track } from "@/lib/analytics";
 
@@ -33,6 +34,7 @@ export function ContactForm() {
       <label className="field"><span>Message</span><textarea value={note} onChange={(e) => setNote(e.target.value)} required /></label>
       {state === "error" ? <p className="notice notice-err" role="alert">Add a working email and a message.</p> : null}
       <button type="submit" className="button button-orange" disabled={state === "busy"}>{state === "busy" ? "Sending…" : "Send"}</button>
+      <p className="small" style={{ margin: 0 }}><Link className="link" href="/privacy">Privacy</Link></p>
     </form>
   );
 }

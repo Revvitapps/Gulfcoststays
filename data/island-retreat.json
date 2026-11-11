@@ -13,85 +13,85 @@
   "seasons": {
     "11": [
       "Low",
-      140,
-      161,
+      165,
+      189,
       2,
       0.3
     ],
     "12": [
       "Low",
-      140,
-      161,
+      165,
+      189,
       2,
       0.3
     ],
     "1": [
       "Low",
-      130,
-      150,
+      152,
+      177,
       2,
       0.28
     ],
     "2": [
       "Low",
-      140,
-      161,
+      165,
+      189,
       2,
       0.38
     ],
     "3": [
       "Shoulder",
-      181,
-      212,
+      213,
+      250,
       3,
       0.45
     ],
     "4": [
       "Shoulder",
-      181,
-      212,
+      213,
+      250,
       3,
       0.45
     ],
     "5": [
       "Peak",
-      223,
-      259,
+      262,
+      305,
       3,
       0.5
     ],
     "6": [
       "Peak",
-      275,
-      311,
+      323,
+      366,
       4,
       0.62
     ],
     "7": [
       "Peak",
-      275,
-      311,
+      323,
+      366,
       4,
       0.58
     ],
     "8": [
       "Shoulder",
-      202,
-      233,
+      238,
+      274,
       3,
       0.42
     ],
     "9": [
       "Shoulder",
-      171,
-      202,
+      201,
+      238,
       2,
       0.37
     ],
     "10": [
       "Shoulder",
-      176,
       207,
+      244,
       2,
       0.38
     ]
@@ -101,88 +101,88 @@
       "2026-11-25",
       "2026-11-28",
       "Thanksgiving",
-      181,
-      202,
+      213,
+      238,
       3
     ],
     [
       "2026-12-19",
       "2027-01-01",
       "Christmas & New Year",
-      192,
-      218,
+      226,
+      256,
       3
     ],
     [
       "2026-12-31",
       "2026-12-31",
       "New Year's Eve",
-      249,
-      249,
+      293,
+      293,
       3
     ],
     [
       "2027-02-05",
       "2027-02-08",
       "Mardi Gras weekend",
-      181,
-      181,
+      213,
+      213,
       2
     ],
     [
       "2027-03-06",
       "2027-04-03",
       "Spring break season",
-      202,
-      233,
+      238,
+      274,
       3
     ],
     [
       "2027-03-26",
       "2027-03-28",
       "Easter weekend",
-      244,
-      244,
+      287,
+      287,
       3
     ],
     [
       "2027-05-28",
       "2027-05-30",
       "Memorial Day weekend",
-      295,
-      295,
+      348,
+      348,
       3
     ],
     [
       "2027-06-04",
       "2027-06-06",
       "Billy Bowlegs Pirate Festival*",
-      332,
-      332,
+      390,
+      390,
       3
     ],
     [
       "2027-07-01",
       "2027-07-04",
       "Fourth of July",
-      337,
-      337,
+      396,
+      396,
       4
     ],
     [
       "2027-09-03",
       "2027-09-05",
       "Labor Day weekend",
-      233,
-      233,
+      274,
+      274,
       3
     ],
     [
       "2027-10-01",
       "2027-10-03",
       "Destin Seafood Festival*",
-      223,
-      223,
+      262,
+      262,
       2
     ]
   ],
@@ -195,8 +195,8 @@
     "Launch pricing": "10% off through Jan 31, 2027"
   },
   "monthly_offers": {
-    "1": 2380,
-    "2": 2590
+    "1": 2800,
+    "2": 3050
   },
   "market_note": "Market reference: Fort Walton Beach 2BR average $341/night at 39% occupancy (AirROI, Oct 2026). Those averages include Gulf-front towers, so this plan sits 30–40% below them.",
   "footnote": "Rates are nightly, before cleaning fee and lodging taxes; table shows standard rates, projections include launch pricing. Projected rent = nights × occupancy × average listed rate. *Confirm event dates before publishing.",

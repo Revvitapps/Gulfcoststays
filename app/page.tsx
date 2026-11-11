@@ -50,8 +50,8 @@ export default function HomePage() {
             <img className="hero-badge" src="/brand/island-retreat-badge-alt.webp" alt="Island Retreat badge" width={120} height={120} />
             <div>
               <div className="stat wash wash-sea" style={{ fontSize: "1.9rem" }}>
-                No listing-site fee
-                <small>Pick your dates, see the exact price. About 15% less than the same stay on Airbnb or Vrbo.</small>
+                No booking fee
+                <small>Pick your dates, see the exact price. No service fee added at checkout.</small>
               </div>
               <p className="small" style={{ margin: "0.4rem 0 0" }}>
                 Launch pricing: 10% off through {new Date(LAUNCH_UNTIL + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
@@ -107,7 +107,7 @@ export default function HomePage() {
               ))}
             </ul>
             <p style={{ marginTop: "1rem" }}>
-              That honesty is the point. Same sand as the Gulf-front towers, a neighborhood price, and no listing-site fee when you book here.
+              That honesty is the point. Same sand as the Gulf-front towers, a neighborhood price, and no booking fee when you book here.
             </p>
             <Link href="/rates" className="button">
               Check my dates

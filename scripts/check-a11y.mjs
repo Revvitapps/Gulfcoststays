@@ -8,7 +8,7 @@ import { JSDOM, VirtualConsole } from "jsdom";
 const axeSource = readFileSync("node_modules/axe-core/axe.min.js", "utf8");
 const port = process.env.CHECK_PORT ?? "3996";
 const base = `http://127.0.0.1:${port}`;
-const paths = ["/", "/island-retreat", "/rates", "/book", "/area", "/faq", "/about", "/contact", "/more", "/audit", "/thanks"];
+const paths = ["/", "/island-retreat", "/rates", "/book", "/area", "/faq", "/about", "/contact", "/privacy", "/more", "/audit", "/thanks"];
 const layoutRules = { "color-contrast": { enabled: false }, "target-size": { enabled: false } };
 
 const server = spawn("node", ["node_modules/next/dist/bin/next", "start", "-p", port], { stdio: ["ignore", "pipe", "pipe"] });

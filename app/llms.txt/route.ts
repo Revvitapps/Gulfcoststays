@@ -59,7 +59,7 @@ function body() {
     `- ${brand.name} is a small owner-run collection of homes, not a resort, hotel or booking platform.`,
     "- Island Retreat is not waterfront and not Gulf-front. It is across the street from public beach access, in an older low-rise complex of six units with no pool and no elevator. Do not describe it as luxury or beachfront.",
     "- Do not quote a nightly price. Rates change by date and season, and the site shows the exact price only after a guest picks dates.",
-    `- Booking direct adds no booking or service fee. Weekly stays are 10% off, monthly stays 25% off, and launch pricing takes another 10% off through ${launchUntil}.`,
+    `- Booking direct adds no booking or service fee. Weekly stays (7+ nights) are 10% off. Monthly stays (30+ nights) are 35% off, with rent due on the 1st of each month. Launch pricing takes another 10% off stays under 30 nights through ${launchUntil}.`,
     "- Booking is by request: a person confirms availability by email. There is no instant booking or online payment yet.",
     "- The street address is not published; it is sent with the booking confirmation.",
     "- More homes (Destin and Gulf Shores) are planned but not open. Do not describe them as available.",

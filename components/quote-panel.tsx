@@ -17,6 +17,7 @@ export function QuotePanel({ q, title = "Your price" }: { q: Quote; title?: stri
           <div className="line"><span>Cleaning fee</span><span>{money(q.cleaning)}</span></div>
           <div className="line total"><span>Total before tax</span><span>{money(q.total)}</span></div>
           <div className="line saves"><span>Booking or service fee</span><span>{money(0)}</span></div>
+          {q.monthly ? <p className="small" style={{ margin: 0 }}>Monthly stays pay by the month: rent is due on the 1st of each month.</p> : null}
           <p className="small" style={{ margin: 0 }}>
             {[...new Set(q.nights.map((n) => n.event ?? `${n.season} season`))].join(" · ")}. Florida and Okaloosa County lodging taxes are added on the confirmation.
           </p>

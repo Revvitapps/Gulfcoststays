@@ -188,10 +188,13 @@
   ],
   "launch_discount": 0.1,
   "launch_discount_until": "2027-01-31",
+  "weekly_discount": 0.1,
+  "monthly_discount": 0.35,
+  "monthly_min_nights": 30,
   "fees": {
     "Cleaning fee": "$135 per stay",
     "Weekly stays (7+ nights)": "10% off",
-    "Monthly stays (28+ nights)": "25% off",
+    "Monthly stays (30+ nights)": "35% off, rent due on the 1st of each month",
     "Launch pricing": "10% off through Jan 31, 2027"
   },
   "monthly_offers": {

@@ -16,7 +16,7 @@ function presetDates(preset: string | null) {
   let start = addDays(today, 14);
   while (start.getUTCDay() !== 5) start = addDays(start, 1);
   if (preset === "week") return [iso(addDays(start, 1)), iso(addDays(start, 8))]; // Sat to Sat
-  if (preset === "month") return ["2027-01-04", "2027-02-01"];
+  if (preset === "month") return ["2027-01-02", "2027-02-01"];
   return [iso(start), iso(addDays(start, 2))];
 }
 

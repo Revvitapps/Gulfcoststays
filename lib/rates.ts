@@ -15,8 +15,11 @@ const events = plan.events as unknown as EventRow[];
 const weekendDays = new Set(plan.weekend_nights.map((d) => ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(d)));
 
 export const CLEANING_FEE = 135; // "$135 per stay" in the plan
-export const WEEKLY_DISCOUNT = 0.1;
-export const MONTHLY_DISCOUNT = 0.25;
+// Length discounts live in the plan (Matthew, Nov 16 2026: 30+ nights 35% off, rent due on the 1st).
+export const WEEKLY_DISCOUNT = plan.weekly_discount;
+export const MONTHLY_DISCOUNT = plan.monthly_discount;
+export const MONTHLY_MIN_NIGHTS = plan.monthly_min_nights;
+export const pct = (n: number) => `${Math.round(n * 100)}%`;
 export const LAUNCH_DISCOUNT = plan.launch_discount;
 export const LAUNCH_UNTIL = plan.launch_discount_until;
 export const MARKET_NOTE = plan.market_note;
@@ -54,6 +57,7 @@ export type Quote = {
   lengthDiscount: number;
   lengthLabel?: string;
   launchDiscount: number;
+  monthly: boolean;
   cleaning: number;
   total: number;
   average: number;
@@ -71,14 +75,16 @@ export function quote(checkIn: string, checkOut: string, today = iso(new Date())
   const minNights = nights.reduce((m, n) => Math.max(m, n.minNights), 0);
   let lengthDiscount = 0;
   let lengthLabel: string | undefined;
-  if (count >= 28) {
+  const monthly = count >= MONTHLY_MIN_NIGHTS;
+  if (monthly) {
     lengthDiscount = Math.round(subtotal * MONTHLY_DISCOUNT);
-    lengthLabel = "Monthly stay, 25% off";
+    lengthLabel = `Monthly stay, ${pct(MONTHLY_DISCOUNT)} off`;
   } else if (count >= 7) {
     lengthDiscount = Math.round(subtotal * WEEKLY_DISCOUNT);
-    lengthLabel = "Weekly stay, 10% off";
+    lengthLabel = `Weekly stay, ${pct(WEEKLY_DISCOUNT)} off`;
   }
-  const launchDiscount = today <= LAUNCH_UNTIL ? Math.round((subtotal - lengthDiscount) * LAUNCH_DISCOUNT) : 0;
+  // Launch pricing does not stack on a monthly stay: the monthly rate is already the deep one.
+  const launchDiscount = !monthly && today <= LAUNCH_UNTIL ? Math.round((subtotal - lengthDiscount) * LAUNCH_DISCOUNT) : 0;
   const cleaning = count > 0 ? CLEANING_FEE : 0;
   const total = subtotal - lengthDiscount - launchDiscount + cleaning;
   let problem: string | undefined;
@@ -86,7 +92,7 @@ export function quote(checkIn: string, checkOut: string, today = iso(new Date())
   else if (checkIn < today) problem = "Check-in is in the past.";
   else if (count < minNights) problem = `Those dates need at least ${minNights} nights.`;
   else if (checkIn < plan.plan_start || checkOut > addDaysIso(plan.plan_end, 1)) problem = "Rates for those dates are not published yet. Ask us.";
-  return { nights, count, subtotal, lengthDiscount, lengthLabel, launchDiscount, cleaning, total, average: count ? Math.round(subtotal / count) : 0, minNights, ok: !problem, problem };
+  return { nights, count, subtotal, lengthDiscount, lengthLabel, launchDiscount, monthly, cleaning, total, average: count ? Math.round(subtotal / count) : 0, minNights, ok: !problem, problem };
 }
 
 function addDaysIso(d: string, n: number) {

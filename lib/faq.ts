@@ -47,7 +47,7 @@ export const faqGroups: { heading: string; items: { q: string; a: string }[] }[]
     items: [
       { q: "How much does Island Retreat cost?", a: "It depends on your dates. Pick dates on the Rates or Book page and the exact price shows: nightly rate, any discounts, one cleaning fee, and lodging tax. No login needed." },
       { q: "Why book direct instead of Airbnb or Vrbo?", a: area("Why book direct?") },
-      { q: "Are there weekly or monthly discounts?", a: "Yes. Weekly stays (7+ nights) are 10% off and monthly stays (28+ nights) are 25% off. January and February go by the month." },
+      { q: "Are there weekly or monthly discounts?", a: "Yes. Weekly stays (7+ nights) are 10% off. Stays of 30 nights or more are 35% off, and rent is due on the 1st of each month." },
       { q: "What is the cleaning fee?", a: area("What is the cleaning fee?") },
       { q: "How do I book?", a: "Pick your dates on the Book page, see the exact price, and send a request. A person confirms by email, usually within a few hours, and nothing is charged until we confirm." },
       { q: "How do I contact Gulf Coast Stays?", a: `Email ${contact.email} or use the contact form. A person answers, not a bot.` },

@@ -39,10 +39,17 @@ assert.equal(week.ok, true);
 
 // After launch window: no launch discount.
 assert.equal(quote("2027-06-05", "2027-06-12", "2027-02-01").launchDiscount, 0);
-// Monthly: 28+ nights 25% off.
-const m = quote("2027-01-04", "2027-02-01", "2026-11-03");
-assert.equal(m.count, 28);
-assert.equal(m.lengthDiscount, Math.round(m.subtotal * 0.25));
+// Monthly: 30+ nights 35% off, no launch discount on top, flagged monthly (rent due on the 1st).
+const m = quote("2027-01-02", "2027-02-01", "2026-11-03");
+assert.equal(m.count, 30);
+assert.equal(m.lengthDiscount, Math.round(m.subtotal * 0.35));
+assert.equal(m.launchDiscount, 0);
+assert.equal(m.monthly, true);
+// 28 nights is weekly pricing, launch discount applies.
+const m28 = quote("2027-01-04", "2027-02-01", "2026-11-03");
+assert.equal(m28.lengthDiscount, Math.round(m28.subtotal * 0.1));
+assert.equal(m28.monthly, false);
+assert.ok(m28.launchDiscount > 0);
 // Past dates and reversed dates fail.
 assert.equal(quote("2026-10-01", "2026-10-03", "2026-11-03").ok, false);
 assert.equal(quote("2026-12-03", "2026-12-01").count, 0);

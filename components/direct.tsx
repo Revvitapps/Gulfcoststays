@@ -3,7 +3,7 @@ import { BadgePercent, KeyRound, MessageSquareText } from "lucide-react";
 
 /** The three reasons to book here instead of a listing site. Shown on every page that sells. */
 export const directReasons = [
-  { icon: BadgePercent, title: "No booking fee", detail: "You pay the nightly rate, one cleaning fee and lodging tax. No service fee is added at checkout." },
+  { icon: BadgePercent, title: "No booking fee", detail: "You pay the nightly rate, one cleaning fee and lodging tax, with nothing added at checkout. Staying a month? 30 nights or more is 35% off." },
   { icon: MessageSquareText, title: "A person, not a platform", detail: "You write to the owner. Early check-in, a boat on a trailer, a birthday on the table: ask." },
   { icon: KeyRound, title: "Same home, same calendar", detail: "It is the same Island Retreat you see on the listing sites. Booking here just skips the middleman." },
 ];

@@ -21,6 +21,6 @@ export const faqs = [
   { q: "What are check-in and check-out?", a: "Check-in from 4 pm, check-out by 10 am. Early or late is sometimes possible; ask when you book." },
   { q: "Do you allow pets?", a: "Not at Island Retreat. [PLACEHOLDER: confirm HOA rule]" },
   { q: "Is there a minimum stay?", a: "Two nights in the quiet months, three in spring and summer, four around the Fourth of July. Pick your dates and the minimum shows before you book." },
-  { q: "Why book direct?", a: "No platform service fee, the same house, and you talk to the person who manages it. Weekly stays are 10% off, monthly 25% off, and launch pricing is 10% off through January 31, 2027." },
+  { q: "Why book direct?", a: "No platform service fee, the same house, and you talk to the person who manages it. Weekly stays are 10% off, 30+ night stays 35% off (rent due on the 1st of each month), and launch pricing is 10% off stays under 30 nights through January 31, 2027." },
   { q: "What is the cleaning fee?", a: "One cleaning fee per stay, shown in your price when you pick dates. Lodging taxes are added as Florida and Okaloosa County require." },
 ];

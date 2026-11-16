@@ -115,7 +115,7 @@ export const pages = [
     path: "/privacy",
     crumb: "Privacy",
     title: "Privacy Policy",
-    description: "How Gulf Coast Stays handles what you send through the booking and contact forms, what Vercel Analytics and Google Analytics measure, and how to opt out.",
+    description: "How Gulf Coast Stays handles what you send through the booking and contact forms, what the cookie-free site analytics measure, and how to opt out.",
     image: ogDefault,
     images: [],
     updated: "2026-11-10",

@@ -40,7 +40,7 @@ export function QuoteWidget() {
         {!q ? (
           <button type="button" className="button button-ghost" onClick={suggest}>Try a weekend two weeks out</button>
         ) : null}
-        <p className="small" style={{ margin: 0 }}>Fri and Sat nights carry the weekend rate. Seven nights takes 10% off, twenty-eight takes 25% off, and launch pricing takes another 10% off through Jan 31, 2027.</p>
+        <p className="small" style={{ margin: 0 }}>Fri and Sat nights carry the weekend rate. Seven nights takes 10% off. Thirty nights or more takes 35% off, with rent due on the 1st of each month. Launch pricing takes another 10% off shorter stays through Jan 31, 2027.</p>
       </div>
       <div className="grid">
         {q ? <QuotePanel q={q} /> : (

@@ -37,14 +37,14 @@ export default function RatesPage() {
             </div>
             <p className="small" style={{ marginTop: "0.5rem" }}>Seafoam quiet · sand busy · orange peak. Minimum stays run two to four nights by season; holiday weekends ask a little more.</p>
             <ul className="list" style={{ marginTop: "0.5rem" }}>
-              <li><span>Weekly stays 10% off, monthly stays 25% off.</span></li>
-              <li><span>Launch pricing: another 10% off every stay through Jan 31, 2027.</span></li>
+              <li><span>Weekly stays (7+ nights) 10% off. Monthly stays (30+ nights) 35% off, rent due on the 1st of each month.</span></li>
+              <li><span>Launch pricing: another 10% off stays under 30 nights through Jan 31, 2027.</span></li>
               <li><span>One cleaning fee per stay. Lodging taxes added on the confirmation, as Florida and Okaloosa County require.</span></li>
             </ul>
           </div>
           <div className="card card-dark" id="monthly">
             <h2 style={{ fontSize: "1.5rem" }}>Snowbird months</h2>
-            <p>January and February go by the month: 28-night minimum, one cleaning fee, the bay for a morning walk and the Gulf for the afternoon. They go first.</p>
+            <p>January and February go by the month: 30 nights or more is 35% off, rent is due on the 1st, one cleaning fee, the bay for a morning walk and the Gulf for the afternoon. They go first.</p>
             <Link href="/book?preset=month" className="button button-orange button-block">Ask about a month</Link>
           </div>
         </div>

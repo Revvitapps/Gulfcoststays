@@ -42,7 +42,7 @@ export const askTree: Record<string, Node> = {
   },
   price: {
     id: "price",
-    prompt: "Pick your dates and the exact price shows before you book: nightly rate, one cleaning fee, and lodging tax. Weekly stays are 10% off, monthly 25% off, and launch pricing takes another 10% off through January 31, 2027. Booking here skips the listing-site fee, about 15% on the same stay.",
+    prompt: "Pick your dates and the exact price shows before you book: nightly rate, one cleaning fee, and lodging tax. Weekly stays are 10% off, 30+ night stays 35% off (rent due on the 1st of each month), and launch pricing takes another 10% off stays under 30 nights through January 31, 2027. Booking here adds no booking or service fee.",
     options: [{ label: "Back", next: "start" }],
     action: { label: "Quote my dates", href: "/book" },
   },

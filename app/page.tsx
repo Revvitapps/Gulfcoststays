@@ -18,7 +18,7 @@ export const metadata = pageMetadata("/");
 const answers = [
   { href: "/book?preset=weekend", icon: Sun, title: "A beach weekend", detail: "Fri to Sun, walk to the Gulf, back for dinner" },
   { href: "/book?preset=week", icon: Waves, title: "A week in summer", detail: "7 nights, 10% off, kids at the Gulfarium" },
-  { href: "/book?preset=month", icon: Moon, title: "A month in winter", detail: "January and February by the month, 25% off" },
+  { href: "/book?preset=month", icon: Moon, title: "A month in winter", detail: "30 nights or more, 35% off" },
   { href: "/area", icon: Fish, title: "A fishing base", detail: "Pier, boat basin and a fryer for the catch" },
   { href: "/island-retreat", icon: Users, title: "Room for the family", detail: "Two bedrooms, two baths, beach gear by the door" },
   { href: "/rates", icon: CalendarDays, title: "Just the price", detail: "Pick dates, see the exact price, no login" },

@@ -12,7 +12,8 @@
  */
 export type SiteAvailability = { configured: boolean; complete: boolean; booked: string[] };
 
-const base = () => process.env.STAYOS_CALENDAR_URL?.trim().replace(/\/$/, "") || "";
+// Accepts the base or the full ".../availability.json" link copied from StayOS.
+const base = () => process.env.STAYOS_CALENDAR_URL?.trim().replace(/\/(availability\.json)?$/, "") || "";
 export const calendarConfigured = () => Boolean(base());
 
 /** Booked nights from StayOS. `complete` is false when StayOS or one of its channel links is not reading. */

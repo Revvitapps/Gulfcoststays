@@ -62,7 +62,7 @@ export const pages = [
     description: "Pick your dates and see the exact price for Island Retreat on Okaloosa Island, with discounts and the cleaning fee. No booking fee, no login.",
     image: ogDefault,
     images: [],
-    updated: "2026-11-10",
+    updated: "2026-11-18",
   },
   {
     path: "/book",
@@ -71,7 +71,7 @@ export const pages = [
     description: "Pick your dates, see the exact price with discounts and cleaning fee, and send a booking request for Island Retreat on Okaloosa Island. A person confirms by email.",
     image: ogDefault,
     images: [],
-    updated: "2026-11-10",
+    updated: "2026-11-18",
   },
   {
     path: "/area",

@@ -321,3 +321,25 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); }
 .reveal:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { .reveal img { transition: opacity 200ms linear; transform: none !important; } }
 .reveal.reveal-card-top { border: 0; border-bottom: 1px solid var(--ink); outline: none; border-radius: 0; aspect-ratio: 16 / 9; box-shadow: none; }
+
+/* Availability calendar (components/availability-calendar.tsx): ink on paper, booked nights struck through. */
+.cal { border: 1px solid var(--rule); border-radius: var(--radius); background: var(--card); padding: 0.9rem; display: grid; gap: 0.75rem; }
+.cal-head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+.cal-nav { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--paper); color: var(--navy); cursor: pointer; }
+.cal-nav:disabled { opacity: 0.35; cursor: default; }
+.cal-months { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+.cal-title { margin: 0 0 0.4rem; font-family: var(--font-display), sans-serif; letter-spacing: 0.04em; color: var(--navy); }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+.cal-dow { text-align: center; font-size: 0.75rem; font-weight: 700; color: var(--muted); padding-bottom: 2px; }
+.cal-day { aspect-ratio: 1; min-height: 36px; border: 1px solid transparent; border-radius: 4px; background: var(--paper); color: var(--navy); font: inherit; font-size: 0.9rem; cursor: pointer; }
+.cal-day:hover:not(:disabled) { border-color: var(--navy); }
+.cal-day:focus-visible { outline: 2px solid var(--orange); outline-offset: 1px; }
+.cal-day:disabled { cursor: default; color: rgba(15, 30, 46, 0.3); background: transparent; }
+.cal-day.is-booked { background: repeating-linear-gradient(135deg, var(--bone-2) 0 4px, transparent 4px 8px); color: rgba(15, 30, 46, 0.45); text-decoration: line-through; }
+.cal-day.is-booked:not(:disabled) { color: var(--navy); text-decoration: none; }
+.cal-day.is-range { background: var(--seafoam); }
+.cal-day.is-end { background: var(--navy); color: #fff; text-decoration: none; }
+.cal-key { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.6rem; }
+.cal-swatch { display: inline-block; width: 14px; height: 14px; border-radius: 3px; background: var(--paper); border: 1px solid var(--rule); vertical-align: -2px; }
+.cal-swatch.is-booked { background: repeating-linear-gradient(135deg, var(--bone-2) 0 3px, transparent 3px 6px); }
+.cal-swatch.is-end { background: var(--navy); }

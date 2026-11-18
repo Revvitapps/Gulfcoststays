@@ -9,6 +9,8 @@ import { booking } from "@/lib/booking";
 import { newId, upsertContact } from "@/lib/pipeline";
 import { property } from "@/data/property";
 import { track } from "@/lib/analytics";
+import { OVERLAP, clashesIn, useAvailability } from "@/lib/availability";
+import { AvailabilityCalendar } from "@/components/availability-calendar";
 
 /** Next Friday (or today if Friday) as a sensible default. */
 function presetDates(preset: string | null) {
@@ -35,11 +37,14 @@ export function BookForm({ preset, checkIn: inProp, checkOut: outProp }: { prese
   // Today's date for the min attribute, client-only to avoid a hydration mismatch at midnight.
   const today = useSyncExternalStore(() => () => {}, () => iso(new Date()), () => undefined);
 
+  const avail = useAvailability();
   const q = booking.quote(checkIn, checkOut);
+  const clash = avail.configured ? clashesIn(avail.booked, checkIn, checkOut) : [];
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!q.ok) return setError(q.problem ?? "Check the dates.");
+    if (clash.length) return setError(OVERLAP);
     if (!name.trim() || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return setError("Add your name and a working email so we can confirm.");
     setBusy(true);
     setError("");
@@ -56,6 +61,19 @@ export function BookForm({ preset, checkIn: inProp, checkOut: outProp }: { prese
   return (
     <form onSubmit={submit} className="grid grid-2" style={{ marginTop: "1.25rem", alignItems: "start" }} noValidate>
       <div className="grid">
+        {avail.configured && today ? (
+          <AvailabilityCalendar
+            booked={avail.booked}
+            today={today}
+            checkIn={checkIn}
+            checkOut={checkOut}
+            onChange={(a, b) => {
+              setCheckIn(a);
+              setCheckOut(b);
+              setError("");
+            }}
+          />
+        ) : null}
         <div className="grid grid-2">
           <label className="field">
             <span>Check-in</span>
@@ -96,13 +114,13 @@ export function BookForm({ preset, checkIn: inProp, checkOut: outProp }: { prese
 
       <div className="grid">
         <QuotePanel q={q} />
-        {!q.ok && q.count > 0 ? <p className="notice" role="status">{q.problem}</p> : null}
+        {clash.length ? <p className="notice" role="status">{OVERLAP}</p> : !q.ok && q.count > 0 ? <p className="notice" role="status">{q.problem}</p> : null}
         {error ? <p className="notice notice-err" role="alert">{error}</p> : null}
-        <button type="submit" className="button button-orange button-lg button-block" disabled={busy || !q.ok}>
+        <button type="submit" className="button button-orange button-lg button-block" disabled={busy || !q.ok || clash.length > 0}>
           {busy ? "Sending…" : "Request these dates"}
         </button>
         <p className="small" style={{ margin: 0 }}>
-          <CheckCircle2 size={14} style={{ display: "inline", verticalAlign: "-2px", color: "var(--ok)" }} /> No charge now. We confirm availability and send a secure payment link by email. Live calendar and instant booking arrive with StayOS.
+          <CheckCircle2 size={14} style={{ display: "inline", verticalAlign: "-2px", color: "var(--ok)" }} /> No charge now. {avail.configured && avail.complete ? "This calendar is the same one Airbnb and Vrbo work from, kept current through the day. " : ""}We confirm your dates by email and send a secure payment link.
         </p>
         <p className="small" style={{ margin: 0 }}>
           How we handle your details: <Link className="link" href="/privacy">Privacy</Link>

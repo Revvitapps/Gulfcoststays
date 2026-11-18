@@ -5,6 +5,8 @@ import { ArrowRight } from "lucide-react";
 import { addDays, iso, toDate } from "@/lib/rates";
 import { booking } from "@/lib/booking";
 import { QuotePanel } from "@/components/quote-panel";
+import { AvailabilityCalendar } from "@/components/availability-calendar";
+import { OVERLAP, clashesIn, useAvailability } from "@/lib/availability";
 
 function nextFriday() {
   const today = toDate(iso(new Date()));
@@ -18,7 +20,9 @@ export function QuoteWidget() {
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const today = useSyncExternalStore(() => () => {}, () => iso(new Date()), () => undefined);
+  const avail = useAvailability();
   const q = checkIn && checkOut ? booking.quote(checkIn, checkOut) : null;
+  const clash = avail.configured ? clashesIn(avail.booked, checkIn, checkOut) : [];
   const suggest = () => {
     const f = nextFriday();
     setCheckIn(iso(f));
@@ -27,6 +31,18 @@ export function QuoteWidget() {
   return (
     <div className="grid grid-2" style={{ alignItems: "start" }}>
       <div className="grid">
+        {avail.configured && today ? (
+          <AvailabilityCalendar
+            booked={avail.booked}
+            today={today}
+            checkIn={checkIn}
+            checkOut={checkOut}
+            onChange={(a, b) => {
+              setCheckIn(a);
+              setCheckOut(b);
+            }}
+          />
+        ) : null}
         <div className="grid grid-2">
           <label className="field">
             <span>Check-in</span>
@@ -37,17 +53,17 @@ export function QuoteWidget() {
             <input type="date" value={checkOut} min={checkIn || today} onChange={(e) => setCheckOut(e.target.value)} />
           </label>
         </div>
-        {!q ? (
+        {!q && !avail.configured ? (
           <button type="button" className="button button-ghost" onClick={suggest}>Try a weekend two weeks out</button>
         ) : null}
         <p className="small" style={{ margin: 0 }}>Fri and Sat nights carry the weekend rate. Seven nights takes 10% off. Thirty nights or more takes 35% off, with rent due on the 1st of each month. Launch pricing takes another 10% off shorter stays through Jan 31, 2027.</p>
       </div>
       <div className="grid">
         {q ? <QuotePanel q={q} /> : (
-          <div className="quote"><p className="eyebrow" style={{ margin: 0 }}>Your price</p><p className="small" style={{ margin: 0 }}>Pick your dates to see the price, the cleaning fee, and what you save by booking direct.</p></div>
+          <div className="quote"><p className="eyebrow" style={{ margin: 0 }}>Your price</p><p className="small" style={{ margin: 0 }}>Pick your dates to see the nightly rates, the cleaning fee and the total. No booking fee on this site.</p></div>
         )}
-        {q && !q.ok ? <p className="notice" role="status">{q.problem}</p> : null}
-        {q?.ok ? (
+        {clash.length ? <p className="notice" role="status">{OVERLAP}</p> : q && !q.ok ? <p className="notice" role="status">{q.problem}</p> : null}
+        {q?.ok && !clash.length ? (
           <Link href={`/book?in=${checkIn}&out=${checkOut}`} className="button button-orange button-lg button-block">
             Request these dates <ArrowRight size={20} />
           </Link>

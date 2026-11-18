@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { bookedNights, clashes, configuredSources, readAll } from "@/lib/calendar";
 
 /**
  * Receives contacts from lib/pipeline.ts. Validates, then delivers to every
@@ -25,6 +26,23 @@ function summary(body: Record<string, unknown>) {
   return `New ${body.kind}: ${body.name ?? "no name"} ${body.email ?? ""} ${dates} ${body.guests ? `${body.guests} guests` : ""}\n${body.note ?? ""}`.trim();
 }
 
+/** One line for the booking email: are the requested nights open on every synced calendar? */
+async function calendarCheck(body: Record<string, unknown>) {
+  const a = String(body.checkIn ?? "");
+  const b = String(body.checkOut ?? "");
+  if (body.kind !== "booking" || !/^\d{4}-\d{2}-\d{2}$/.test(a) || !/^\d{4}-\d{2}-\d{2}$/.test(b)) return null;
+  if (configuredSources().length === 0) return "Calendar: not connected yet. Check Airbnb and Vrbo before confirming.";
+  try {
+    const results = await readAll();
+    const hit = clashes(bookedNights(results, undefined, a), a, b);
+    const down = results.filter((r) => !r.ok).map((r) => r.name);
+    if (hit.length) return `Calendar: OVERLAP. Already booked: ${hit.join(", ")}.`;
+    return down.length ? `Calendar: open on the calendars that loaded; ${down.join(", ")} did not load. Check it before confirming.` : "Calendar: open on every synced calendar.";
+  } catch {
+    return "Calendar: check failed. Check Airbnb and Vrbo before confirming.";
+  }
+}
+
 async function sendEmail(body: Record<string, unknown>, apiKey: string) {
   const label = LABELS[String(body.kind)] ?? "Message";
   const who = typeof body.name === "string" && body.name ? body.name : String(body.email ?? "a guest");
@@ -38,6 +56,7 @@ async function sendEmail(body: Record<string, unknown>, apiKey: string) {
     body.checkIn ? `Check-in: ${body.checkIn}` : null,
     body.checkOut ? `Check-out: ${body.checkOut}` : null,
     body.guests ? `Guests: ${body.guests}` : null,
+    (await calendarCheck(body)) ?? null,
     `Page: ${body.page ?? "—"}`,
     `Sent: ${body.createdAt ?? new Date().toISOString()}`,
     "",

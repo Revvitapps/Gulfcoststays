@@ -20,7 +20,7 @@ export default async function BookPage({ searchParams }: { searchParams: Promise
         {contact.airbnb || contact.vrbo ? (
           <p className="small" style={{ marginTop: "1.5rem" }}>
             Prefer a platform? {contact.airbnb ? <a className="link" href={contact.airbnb}>Airbnb</a> : null}{contact.airbnb && contact.vrbo ? " · " : ""}
-            {contact.vrbo ? <a className="link" href={contact.vrbo}>Vrbo</a> : null}. Same home, their service fee on top.
+            {contact.vrbo ? <a className="link" href={contact.vrbo}>Vrbo</a> : null}. Same home, same calendar.
           </p>
         ) : null}
       </div>

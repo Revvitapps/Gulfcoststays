@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { bookedNights, clashes, configuredSources, readAll } from "@/lib/calendar";
+import { calendarConfigured, clashes, siteAvailability } from "@/lib/calendar";
 
 /**
  * Receives contacts from lib/pipeline.ts. Validates, then delivers to every
@@ -26,21 +26,19 @@ function summary(body: Record<string, unknown>) {
   return `New ${body.kind}: ${body.name ?? "no name"} ${body.email ?? ""} ${dates} ${body.guests ? `${body.guests} guests` : ""}\n${body.note ?? ""}`.trim();
 }
 
-/** One line for the booking email: are the requested nights open on every synced calendar? */
+/** One line for the booking email: are the requested nights open in StayOS (every channel plus direct)? */
 async function calendarCheck(body: Record<string, unknown>) {
   const a = String(body.checkIn ?? "");
   const b = String(body.checkOut ?? "");
   if (body.kind !== "booking" || !/^\d{4}-\d{2}-\d{2}$/.test(a) || !/^\d{4}-\d{2}-\d{2}$/.test(b)) return null;
-  if (configuredSources().length === 0) return "Calendar: not connected yet. Check Airbnb and Vrbo before confirming.";
-  try {
-    const results = await readAll();
-    const hit = clashes(bookedNights(results, undefined, a), a, b);
-    const down = results.filter((r) => !r.ok).map((r) => r.name);
-    if (hit.length) return `Calendar: OVERLAP. Already booked: ${hit.join(", ")}.`;
-    return down.length ? `Calendar: open on the calendars that loaded; ${down.join(", ")} did not load. Check it before confirming.` : "Calendar: open on every synced calendar.";
-  } catch {
-    return "Calendar: check failed. Check Airbnb and Vrbo before confirming.";
-  }
+  if (!calendarConfigured()) return "Calendar: StayOS not connected yet. Check Airbnb and Vrbo before confirming.";
+  const avail = await siteAvailability();
+  if (!avail.configured) return "Calendar: StayOS did not answer. Check Airbnb and Vrbo before confirming.";
+  const hit = clashes(avail.booked, a, b);
+  if (hit.length) return `Calendar: OVERLAP. Already booked: ${hit.join(", ")}.`;
+  return avail.complete
+    ? "Calendar: open on every synced calendar."
+    : "Calendar: open in StayOS, but a channel calendar is not reading. Check it before confirming.";
 }
 
 async function sendEmail(body: Record<string, unknown>, apiKey: string) {

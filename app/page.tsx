@@ -33,7 +33,7 @@ export default function HomePage() {
           <div>
             <p className="eyebrow">{property.collection} · Okaloosa Island</p>
             <h1>
-              Walk to the Gulf <span className="script" style={{ fontSize: "0.5em", display: "block" }}>one way,</span> the bay the other.
+              Okaloosa Island: walk to the Gulf <span className="script" style={{ fontSize: "0.5em", display: "block" }}>one way,</span> the bay the other.
             </h1>
             <p className="lede">{brand.description}</p>
             <div className="row" style={{ marginTop: "0.5rem" }}>

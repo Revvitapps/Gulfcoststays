@@ -16,7 +16,7 @@ export default function AreaPage() {
       <section className="section-tight">
         <div className="wrap">
           <p className="eyebrow">Okaloosa Island</p>
-          <h1 style={{ fontSize: "clamp(2.4rem, 7vw, 4.5rem)" }}>Talk like the dock</h1>
+          <h1 style={{ fontSize: "clamp(2.4rem, 7vw, 4.5rem)" }}>Okaloosa Island guide: talk like the dock</h1>
           <p className="lede">Real distances, no brochure. Where to launch a kayak, who fries the catch, when the sun sets over the bay.</p>
         </div>
       </section>
